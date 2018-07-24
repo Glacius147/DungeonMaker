@@ -14,7 +14,7 @@ if obj_menu.mode = MENU_MODE.JEU && room_origine_x = obj_joueur.room_current_x &
 	//déplacement
 	scr_deplacement();
 	
-	if hsp + vsp = 0 event_user(2);
+	if hsp + vsp = 0 scr_random_direction();
 	
 	
 	

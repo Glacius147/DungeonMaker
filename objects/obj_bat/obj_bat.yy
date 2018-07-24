@@ -5,16 +5,6 @@
     "name": "obj_bat",
     "eventList": [
         {
-            "id": "f0f25e11-47e3-4f39-9964-84234685c796",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 10,
-            "eventtype": 7,
-            "m_owner": "27d8c1c9-81b3-4d04-92b5-63d1f7563b5c"
-        },
-        {
             "id": "2d5b4cf4-fd33-4ee1-a6d0-ca1f10816739",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -52,16 +42,6 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 2,
             "eventtype": 2,
-            "m_owner": "27d8c1c9-81b3-4d04-92b5-63d1f7563b5c"
-        },
-        {
-            "id": "3858c3ab-5993-48e8-8b11-6aea73f3fe45",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 17,
-            "eventtype": 7,
             "m_owner": "27d8c1c9-81b3-4d04-92b5-63d1f7563b5c"
         }
     ],
@@ -148,7 +128,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "0",
-            "varName": "dir_bat",
+            "varName": "dir_vol",
             "varType": 0
         },
         {

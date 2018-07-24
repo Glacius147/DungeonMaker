@@ -1,17 +1,10 @@
 /// @desc scr_attaque_monstre();
 	
-//vérifie si il y a qq dans la direction de l'épée
-
-
+//vérifie si il y a le joueur 
 with instance_place(x,y,obj_joueur)
 {
 	if !invulnerable && !other.invulnerable
 	{
-		toto1 = x;
-		toto2 = y;
-		toto3 = other.x;
-		toto4 = other.y;
-		
 		invulnerable = true;
 		alarm[1] = frames_invulnerable;
 		pv -= other.degats;

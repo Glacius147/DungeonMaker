@@ -1,5 +1,6 @@
-/// @description ?
+/// @descr Changement de musique celon les modes d'obj_menu et obj_joueur
 
+#region//musique par menu
 if obj_menu.mode != mode
 {
 	mode = obj_menu.mode
@@ -21,7 +22,9 @@ if obj_menu.mode != mode
 	}
 	
 }
+#endregion
 
+#region //musique par mode du joueur
 if instance_exists(obj_joueur)
 {
 	if obj_joueur.t_salle != t_salle
@@ -43,4 +46,4 @@ if instance_exists(obj_joueur)
 		}
 	}	
 }
-
+#endregion

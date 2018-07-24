@@ -1,4 +1,4 @@
-/// @desc degats d'explosion
+/// @desc Bombes
 
 if !invulnerable
 {

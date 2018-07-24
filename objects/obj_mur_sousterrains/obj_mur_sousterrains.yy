@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_mur_sousterrains",
     "eventList": [
-        
+        {
+            "id": "3803fffb-2ddd-4ede-b4d3-f100ed918d64",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "77780913-421a-4fc3-8cbd-7e0e8907c82e"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

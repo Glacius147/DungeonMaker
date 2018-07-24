@@ -5,15 +5,15 @@ if obj_menu.mode = MENU_MODE.JEU && room_origine_x = obj_joueur.room_current_x &
 		
 
 	// application du mouvement
-	hsp = dcos(dir_bat)*vitesse_marche*vitesse;
-	vsp = dsin(dir_bat)*vitesse_marche*vitesse;
+	hsp = dcos(dir_vol)*vitesse_marche*vitesse;
+	vsp = dsin(dir_vol)*vitesse_marche*vitesse;
 
 	//déplacement
 	scr_deplacement_vol();
 	
 	//gestion vitesse
 	
-	dir_bat += rotation;
+	dir_vol += rotation;
 	
 	if mode = MODE_BAT.DECOLAGE
 	{

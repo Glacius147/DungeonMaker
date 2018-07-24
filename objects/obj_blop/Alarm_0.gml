@@ -2,4 +2,4 @@
 
 alarm[0] = irandom_range(120,180);
 
-event_user(2);
+scr_random_direction();

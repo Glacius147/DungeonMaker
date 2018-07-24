@@ -1,6 +1,8 @@
 /// @description ?
+if instance_exists(obj_joueur) && obj_menu.mode = MENU_MODE.JEU
+{
 
-if mode = MODE_PIC.REPOS
+if mode = MODE_PIC.REPOS 
 {
 	if abs(obj_joueur.x-x) < 20
 	{
@@ -88,6 +90,6 @@ if mode = MODE_PIC.CHARGE
 }
 
 
-
+}
 
 

@@ -2,12 +2,12 @@
 
 //on chope la direction
 
-//vérifie si il y a qq dans la direction de l'épée
+//vérifie si il y a qq dans la direction du regard
 
 var x_t1 = x;
 var y_t1 = y;
 	
-//Coordonnées du bout de l'épée
+//Coordonnées de l action
 switch dir_attaque
 {
 	case DIR.RIGHT :
@@ -66,7 +66,7 @@ switch objet_b
 				sprite_index = spr_flammes;
 			}
 			torche_active = true;
-			alarm[3] = 20;
+			alarm[0] = 20;
 			break;
 		}
 }

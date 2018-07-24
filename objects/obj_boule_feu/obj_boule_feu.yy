@@ -52,8 +52,22 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "2",
+            "value": "1.5",
             "varName": "vitesse_marche",
+            "varType": 0
+        },
+        {
+            "id": "76d7add6-e1b4-4e43-9c51-f9c26dd7d0d9",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0.5",
+            "varName": "degats",
             "varType": 0
         }
     ],

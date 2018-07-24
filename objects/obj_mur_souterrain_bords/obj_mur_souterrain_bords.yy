@@ -1,23 +1,14 @@
 {
-    "id": "d7e56a10-810e-435c-8b92-4ef56e31815b",
+    "id": "23d6531e-f48c-4e55-8e98-f0b7e91d9cf7",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_mur_sousterrains2",
+    "name": "obj_mur_souterrain_bords",
     "eventList": [
-        {
-            "id": "52225853-ab70-4ce8-aea5-d50c8d07d6af",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "d7e56a10-810e-435c-8b92-4ef56e31815b"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "ecc6472e-0ffe-4374-adcb-097042aed299",
+    "parentObjectId": "e8381c17-0d08-42e1-a287-13f6280a61f0",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -31,8 +22,10 @@
     "physicsShape": 1,
     "physicsShapePoints": null,
     "physicsStartAwake": true,
-    "properties": null,
+    "properties": [
+        
+    ],
     "solid": false,
-    "spriteId": "b95727ca-2f04-4978-bf46-4c3bdfce0112",
+    "spriteId": "1294a0b4-71fc-45f1-8a32-a9af33bf19d5",
     "visible": true
 }

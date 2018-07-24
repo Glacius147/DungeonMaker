@@ -3,7 +3,7 @@ if mode = MODE_BAT.REPOS
 {
 	mode = MODE_BAT.DECOLAGE
 	vitesse = 0;
-	dir_bat = irandom_range(0,359);
+	dir_vol = irandom_range(0,359);
 }
 else
 {

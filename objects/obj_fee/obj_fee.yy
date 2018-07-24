@@ -45,16 +45,6 @@
             "m_owner": "ff56a40b-8e65-4de4-9238-4c280e2729df"
         },
         {
-            "id": "d656ba74-7c1c-4faf-a4d1-571ba1d09ed1",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 17,
-            "eventtype": 7,
-            "m_owner": "ff56a40b-8e65-4de4-9238-4c280e2729df"
-        },
-        {
             "id": "9320f889-421e-4682-9b46-8c8dc5790cb6",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -119,21 +109,7 @@
             "rangeMin": 0,
             "resourceFilter": 1023,
             "value": "0",
-            "varName": "dir_bat",
-            "varType": 0
-        },
-        {
-            "id": "8a4507d1-d4f7-43ba-b447-975b35f6fc57",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "0",
-            "varName": "vitesse1",
+            "varName": "dir_vol",
             "varType": 0
         },
         {

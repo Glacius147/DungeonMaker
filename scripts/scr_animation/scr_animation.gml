@@ -2,9 +2,11 @@
 	
 	//annime le perso dans la direction de son déplacement
 	
-	//animation de frappe
+
 if attaque || magnis_actif || torche_active
 {
+	#region	//animation de frappe
+	
 	if magnis_actif sprite_index = spr_joueur_magnis 
 	else if	torche_active sprite_index = spr_joueur_torche;
 	else sprite_index = spr_attaque;
@@ -41,11 +43,12 @@ if attaque || magnis_actif || torche_active
 		}
 		
 	}
+#endregion
 }
 else
 {
 	//flag de deplacement
-	immobile = true;
+	var immobile = true;
 	//animation de deplacement
 	if hsp < 0 || k_left
 	{
@@ -124,4 +127,5 @@ else
 	}
 }	
 
+//pour s'asurer d'avoir toujours le meme masque
 if id = obj_joueur mask_index = spr_joueur_down;

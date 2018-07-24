@@ -1,4 +1,4 @@
-//
+///@desc Affichage du blink
 
 draw_self()
 

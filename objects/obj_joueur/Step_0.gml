@@ -88,7 +88,7 @@ if obj_menu.mode = MENU_MODE.JEU && frames_immobile <= 0
 		}
 	}
 	
-	// application du mouvement
+	// application du mouvement sauf sur le gel
 	if !place_meeting(x,y,obj_gel) || (hsp == 0 && vsp == 0) || bottes_fer
 	{
 		hsp = (k_right - k_left)*vitesse_marche;

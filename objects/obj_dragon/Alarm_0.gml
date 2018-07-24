@@ -1,5 +1,5 @@
 /// @desc burst !
-if mode != MODE_DRAKE.MORT
+if mode != MODE_DRAKE.MORT 
 {
 	alarm[2] = irandom_range(180,360);
 	mode = MODE_DRAKE.BURST;
