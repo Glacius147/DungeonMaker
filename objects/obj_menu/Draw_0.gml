@@ -1,5 +1,6 @@
 /// @descr interface en jeu
 
+#region Hub du mode jeu
 if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode = MENU_MODE.PAUSE || mode = MENU_MODE.CHANGEMENT_SALLE
 {
 	//correction bug d'affichage
@@ -12,29 +13,36 @@ if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode 
 	scr_mini_map();
 	
 	
-	//affichages des objets touches A et B
+	#region //affichages des objets touches A et B
+	//cadre
 	scr_9box(spr_9box,x_b + 114, y_b + 22, x_b + 114 + 30, y_b + 22 + 38);
 	scr_9box(spr_9box,x_b + 148, y_b + 22, x_b + 148 + 30, y_b + 22 + 38);
+	//lettres indicatives des comandes
 	draw_set_valign(fa_middle);
 	draw_set_halign(fa_center);	
 	draw_set_color(c_yellow);
 	draw_text(x_b + 129,y_b + 15,"B");
 	draw_text(x_b + 163,y_b + 15,"N");
 	draw_set_valign(fa_top);
+	//Sprite de l'objet
 	if instance_exists(obj_joueur) 
 	{
 		draw_sprite(obj_joueur.objet_a,0,x_b + 129,y_b + 40);
 		if obj_joueur.objet_b != 0 draw_sprite(obj_joueur.objet_b,0,x_b + 163,y_b + 40);
 	}
+	#endregion
 
-	//affichage choix objet & contour map
+	//affichage inventaire
 	scr_9box(spr_9box,x_b + 100, y_b -150, x_b + 230, y_b -112);
-	
+	if instance_exists(obj_joueur) 	scr_obj_selection();
+
+	//affichage carte
 	draw_set_color(c_blue);
 	draw_rectangle(x_b + 50, y_b -110, x_b + 230, y_b -10, false);
+	scr_map();
+
 
 	//placement des coeurs
-	/// @desc affiche le niveau de PV du joueur
 	if instance_exists(obj_joueur) 
 	{
 		pv = obj_joueur.pv;
@@ -78,15 +86,10 @@ if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode 
 	draw_set_valign(fa_top);
 	}
 }
+#endregion
 
 
 
 
 
 
-//gestion selection objet
-if (mode = MENU_MODE.PAUSE ||mode = MENU_MODE.UP||mode = MENU_MODE.DOWN) && instance_exists(obj_joueur) 
-{
-	scr_obj_selection();
-	scr_map();
-}

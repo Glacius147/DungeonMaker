@@ -175,6 +175,20 @@
             "value": "0",
             "varName": "percent",
             "varType": 0
+        },
+        {
+            "id": "bc54b37c-ad86-4ae0-803e-dee2ee8d0ba9",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "-1",
+            "varName": "objet_b_num ",
+            "varType": 0
         }
     ],
     "solid": false,

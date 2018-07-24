@@ -4,6 +4,7 @@ scr_input();
 
 if mode = MENU_MODE.VICTOIRE scr_victoire()
 
+#region //menu
 if mode = MENU_MODE.MENU
 {
 	//arrivée progressive du menu à l ecran
@@ -43,23 +44,23 @@ if mode = MENU_MODE.MENU
 	{
 		switch menu_selection
 		{
-			case 1 : default: scr_transition(TRANS_MODE.GOTO,room_editeur); break;
 			case 0 : game_end(); break;
-			//case 1 : scr_transition(TRANS_MODE.GOTO,room_jeu);
-			//mode = MENU_MODE.JEU;
-			//break;
-			case 2 : default: scr_transition(TRANS_MODE.GOTO,room_select);
-			mode = MENU_MODE.SELECT_LOAD;
-			break;
+			case 1 : scr_transition(TRANS_MODE.GOTO,room_editeur); break;
+			case 2 : {	scr_transition(TRANS_MODE.GOTO,room_select);
+					mode = MENU_MODE.SELECT_LOAD;
+					break; }
 		}
 		menu_selection = -1;
 	}	
 }
+#endregion
 
+
+//activation de la pause (et sortie de la pause)
 if mode = MENU_MODE.JEU && k_start mode = MENU_MODE.UP;
 if mode = MENU_MODE.PAUSE && k_start mode = MENU_MODE.DOWN;
 
-		//gestion des transitions
+#region //gestion des transitions (menu depart et pause en jeu)
 if mode != MENU_MODE.JEU
 {
 	if mode = MENU_MODE.FADE || mode = MENU_MODE.DOWN
@@ -101,8 +102,9 @@ if mode != MENU_MODE.JEU
 		}
 	}
 }
+#endregion
 
-//gestion caméras
+#region //gestion caméras
 if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode = MENU_MODE.PAUSE
 {
 	
@@ -121,39 +123,19 @@ if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode 
 	camera_set_view_pos(view_camera[1],4097 ,2816-(240-ch));
 	view_set_hport(1,720-3*ch);
 	}
-	
-	/*
-	if debug_mode and (mode = MENU_MODE.DOWN or mode = MENU_MODE.UP) and (floor(percent*100) mod 5)==0
-	{
-		var cy = camera_get_view_y(view_camera[0]);
-		var ch = camera_get_view_height(view_camera[0]);
-		var vh = view_get_hport(0);
-		var vy = view_get_yport(0);
-		show_debug_message("percent = "+string(percent))
-		show_debug_message("Caméra 0 : "+"Centre "+string(cy)+" hauteur "+string(ch)+" yv "+string(vy) +" hauteurv "+string(vh))
-		var cy = camera_get_view_y(view_camera[1]);
-		var ch = camera_get_view_height(view_camera[1]);
-		var vh = view_get_hport(1);
-		var vy = view_get_yport(1);
-		show_debug_message("Caméra 1 : "+"Centre "+string(cy)+" hauteur "+string(ch)+" yv "+string(vy) + " hauteurv "+string(vh))
-		var test =1
-	}
-	*/
 }
+#endregion
 
+#region //gestion scroling caméra et obj_joueur pour les changement de salle
 if mode = MENU_MODE.CHANGEMENT_SALLE
 {
 	percent2 = min(1,percent2 + 0.01);	
 	
+	camera_set_view_pos(view_camera[0], x_cam_depart + percent2*x_to* 256,y_cam_depart + percent2*y_to* 176);
 	
 
-	if view_current == 0
-	{
-	camera_set_view_pos(view_camera[0], x_cam_depart + percent2*x_to* 256,y_cam_depart + percent2*y_to* 176)
-	}
-
-		obj_joueur.x = x_joueur_depart + percent2*x_to*64;
-		obj_joueur.y = y_joueur_depart + percent2*y_to*64;
+	obj_joueur.x = x_joueur_depart + percent2*x_to*64;
+	obj_joueur.y = y_joueur_depart + percent2*y_to*64;
 	
 	if percent2 = 1
 	{
@@ -166,4 +148,5 @@ if mode = MENU_MODE.CHANGEMENT_SALLE
 		mode = MENU_MODE.JEU
 	}
 }
+#endregion
 
