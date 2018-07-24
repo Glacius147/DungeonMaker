@@ -13,20 +13,35 @@ current_room_y = camera_get_view_y(view_camera[0]) div 176;
 
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-
+/*
 	//clic minimap
-	//pour le +76, voir le rectangle bleu dans Draw
-	if mouse_check_button_released(mb_left) and (c_x>4096 and c_x<4096+76 and c_y>1760){
-			var d_y = mouse_y - camera_get_view_y(view_camera[1]) - 6
+	#region
+	// 73 = 76 - 3
+	//pour le 76, voir le rectangle bleu dans Draw (74+2)
+	if mouse_check_button_released(mb_left) and (c_x>4096+6 and c_x<4096+73 and c_y>1760){
+			
 			var d_x = mouse_x - camera_get_view_x(view_camera[1]) - 4
-			current_room_x = d_x div 4
-			current_room_y = d_y div 3
-			camera_set_view_pos(view_camera[0],current_room_x*256 ,xurrent_room_y*176);
+			var d_y = mouse_y - camera_get_view_y(view_camera[1]) - 6
+			
+			var current_room_x_t = d_x div 4
+			var current_room_y_t = d_y div 3
+			
+			//dans la dernière colonne, seules les salles sous sont accessibles
+			if ((current_room_x_t == 16) and (current_room_y_t>5)) {current_room_x_t=-1}
+			
+			//si le clic est légal, maj de la room courante
+			//if (current_room_x_t!=-1) {current_room_x = current_room_x_t; current_room_y= current_room_y_t;}
+			
+			show_debug_message(current_room_x_t)
+			show_debug_message(current_room_y_t)
+			//deplacement de la caméra 0
+			//camera_set_view_pos(view_camera[0],current_room_x*256 ,current_room_y*176);
 	}
+	#endregion
 
 
 	//creation de salle
-	if mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y] and (c_x<4096)
+	if (c_x<4096) and mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y]
 	{
 		x = current_room_x*256
 		y = current_room_y*176
@@ -50,11 +65,11 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 		ds_list_add(obj_list,instance_create_layer(x+8,y+8,"items",obj_fantome));
 		nb_obj ++;
 	}
-	
+*/	
 
 
 #region
-/*
+
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
 	{
@@ -254,9 +269,9 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		item = instance_position(mouse_x,mouse_y,obj_master);
 		if item != noone
 		{
-			test = item.object_index
-			test2 = obj_mur
-			test3 = obj_porte
+
+			item.item_version = (item.itemversion + 1) mod (item.item_nombre_version)
+			
 			nextroom = scr_is_room_adj(x,y)
 			has_nextroom = nextroom[0];
 			var flag_cycle = false
@@ -353,7 +368,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		}
 	}
 }
-*/
+
 #endregion
 
 if mode_edition = EDITEUR_MODE.DEPENDANCE_1{

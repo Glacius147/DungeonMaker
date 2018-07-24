@@ -8,6 +8,11 @@ enum EDITEUR_MODE{
 	ERASER_DEP
 };
 
+
+//Selection du mode principal
+obj_menu.mode = MENU_MODE.CONSTRUCTION
+
+
 // la room de départ
 current_room_x = 8
 current_room_y = 15
@@ -27,10 +32,8 @@ current_arrow = noone
 
 
 
-//Pour que les objets ne bougent pas.
-obj_menu.mode = MENU_MODE.CONSTRUCTION
-
 //Création du tableau des salles créées
+
 var i;
 var j;
 for (i = 0; i < 17; i += 1)

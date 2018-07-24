@@ -44,13 +44,14 @@ if view_current == 1
 		}
 	}
 	//Affichage des souterrains créés
-	for (var j = 0; j < 6; j += 1)
+	for (var j = 0; j < 6; j ++)
 	{
 		
 		if created_room[16,j] 
-		{
+		{			
 			x1 = 3+4*i + offset_x
 			y1 = 2+3*j + offset_y
+			draw_set_color(c_black);
 			draw_rectangle(x1, y1, x1+2, y1+1, false);
 		}
 			

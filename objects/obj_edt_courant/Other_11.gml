@@ -56,6 +56,7 @@ for (i = 0; i < size; i++;)
 	item_py = item[? "piece y"];
 	item_sprite = item[? "sprite"];
 	item_angle = item[? "angle"];
+	var item_version = item[? "item_version"];
 	if item_type == string(obj_mur_salle){
 		var new_item = instance_create_layer(item_x,item_y,"salles",item_type)
 		salle_x = round(item_x/256);
@@ -87,6 +88,7 @@ for (i = 0; i < size; i++;)
 	new_item.image_angle = item_angle;
 	new_item.room_origine_x = item_px;
 	new_item.room_origine_y = item_py;
+	new_item.item_version = item_version;
 	}
 	ds_list_add(obj_list,new_item)
 	if item_type == string(obj_joueur){	

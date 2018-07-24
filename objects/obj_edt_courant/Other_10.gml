@@ -23,6 +23,8 @@ for (i = 0; i<nb_obj; i++)
 	p_y = floor(obj_list[| i].y/176)
 	ds_map_add(item_map_ds, "piece x",p_x);
 	ds_map_add(item_map_ds, "piece y",p_y);
+	ds_map_add(item_map_ds, "piece y",p_y);
+	ds_map_add(item_map_ds, "item_version",obj_list[| i].item_version);
 	ds_map_add(item_map_ds, "sprite",obj_list[| i].image_index);
 	if obj_list[| i].object_index==obj_mur_salle{
 	show_debug_message(string(obj_menu.t_deco) + " "+string(obj_list[| i].image_index))	
