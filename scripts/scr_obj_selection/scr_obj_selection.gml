@@ -41,27 +41,27 @@ if mode != MENU_MODE.JEU
 	
 	scr_input();
 
-	if k_left && !touche_enfoncee && objet_b_num != 0 
+	if kp_left && objet_b_num != 0 
 	{
 		objet_b_num_t = objet_b_num;
 		for (i = 0; i < objet_b_num_t; i++)
 		{
 			if liste[i] objet_b_num = i;	
 		}
-		touche_enfoncee = true;
+//		touche_enfoncee = true;
 	}
 
-	if k_right && !touche_enfoncee && objet_b_num != taille_liste
+	if kp_right && objet_b_num != taille_liste
 	{
 		objet_b_num_t = objet_b_num;
 		for (i = taille_liste; i > objet_b_num_t; i--)
 		{
 			if liste[i] objet_b_num = i;	
 		}
-		touche_enfoncee = true;
+//		touche_enfoncee = true;
 	}
 	
-	if !k_right && !k_left touche_enfoncee = false;
+//	if !k_right && !k_left touche_enfoncee = false;
 
 
 	//validation de l'objet selectionné

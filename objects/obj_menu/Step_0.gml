@@ -31,7 +31,7 @@ if mode = MENU_MODE.MENU
 		if !k_down && !k_up 			touche_enfoncee = false;
 		
 		//validation d'un item
-		if k_attaque || k_start
+		if kp_attaque || kp_start
 		{
 			menu_x_target = w + 200;
 			menu_selection = menu_curseur;
@@ -57,8 +57,8 @@ if mode = MENU_MODE.MENU
 
 
 //activation de la pause (et sortie de la pause)
-if mode = MENU_MODE.JEU && k_start mode = MENU_MODE.UP;
-if mode = MENU_MODE.PAUSE && k_start mode = MENU_MODE.DOWN;
+if mode = MENU_MODE.JEU && kp_start mode = MENU_MODE.UP;
+if mode = MENU_MODE.PAUSE && kp_start mode = MENU_MODE.DOWN;
 
 #region //gestion des transitions (menu depart et pause en jeu)
 if mode != MENU_MODE.JEU

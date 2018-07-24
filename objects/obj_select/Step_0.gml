@@ -33,11 +33,11 @@ if obj_menu.mode == MENU_MODE.SELECT_SAVE or  obj_menu.mode == MENU_MODE.SELECT_
 			if mouse_x <350 and mouse_x > 176 and mouse_y>176-2-menu_itemheight*.75 and mouse_y<176+9.5*menu_itemheight
 			{
 				menu_curseur = floor((mouse_y-176+2+.75*menu_itemheight)/(1.5*menu_itemheight))
-				k_start = true	
+				kp_start = true	
 			}
 		}
 		//validation d'un item
-		if k_attaque || k_start
+		if kp_attaque || kp_start
 		{
 			menu_selection = menu_curseur;
 			if menu_selection = 6
