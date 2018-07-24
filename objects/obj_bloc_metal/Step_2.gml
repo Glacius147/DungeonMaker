@@ -1,4 +1,4 @@
-/// @desc
+/// @desc deplacement sous magnus
 
 if obj_menu.mode = MENU_MODE.JEU 
 {

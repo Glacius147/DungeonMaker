@@ -1,4 +1,4 @@
-/// @desc repise a 0 du deplacement
+/// @desc Objet obsolète !
 
 hsp = 0;
 vsp = 0;

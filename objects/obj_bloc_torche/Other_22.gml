@@ -2,6 +2,6 @@
 
 if image_index = 0
 {
-	image_index = 1;
 	event_user(5);
+	activant_on = true;
 }

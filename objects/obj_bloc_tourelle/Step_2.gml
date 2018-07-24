@@ -1,4 +1,4 @@
-/// @desc
+/// @desc gestion deplacement si porté
 
 if obj_menu.mode = MENU_MODE.JEU 
 {
