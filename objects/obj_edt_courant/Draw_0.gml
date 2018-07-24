@@ -9,7 +9,7 @@ if view_current == 1
 	var x_hub = camera_get_view_x(view_camera[1])
 	var y_hub = camera_get_view_y(view_camera[1])
 	
-	show_debug_message(string(y_hub) + string(x_hub))
+	//show_debug_message(string(y_hub) +" " +string(x_hub))
 	
 	
 	//petite marge en noir
@@ -42,6 +42,20 @@ if view_current == 1
 			//draw_set_color(c_black);
 			//draw_rectangle(x1, y1, x1+12, y1+9, true);
 		}
+	}
+	//Affichage des souterrains créés
+	for (var j = 0; j < 6; j += 1)
+	{
+		
+		if created_room[16,j] 
+		{
+			x1 = 3+4*i + offset_x
+			y1 = 2+3*j + offset_y
+			draw_rectangle(x1, y1, x1+2, y1+1, false);
+		}
+			
+		//draw_set_color(c_black);
+		//draw_rectangle(x1, y1, x1+12, y1+9, true);
 	}
 	
 	// room courante en rouge

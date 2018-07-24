@@ -7,17 +7,13 @@ nb_obj = ds_list_size(obj_list)
 var c_x = mouse_x
 var c_y = mouse_y
 
-//mise à jour de la salle courante
-if c_x<4096 or (c_y<1760)
-{
-current_room_x = c_x div 256
-current_room_y = c_y div 176
-}
 
+current_room_x = camera_get_view_x(view_camera[0]) div 256;
+current_room_y = camera_get_view_y(view_camera[0]) div 176;
 
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-/*
+
 	//clic minimap
 	//pour le +76, voir le rectangle bleu dans Draw
 	if mouse_check_button_released(mb_left) and (c_x>4096 and c_x<4096+76 and c_y>1760){
@@ -32,12 +28,33 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	//creation de salle
 	if mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y] and (c_x<4096)
 	{
-		
+		x = current_room_x*256
+		y = current_room_y*176
+		nb_obj = ds_list_size(obj_list)
+		ds_list_add(obj_list,instance_create_layer(x,y,"salles",obj_mur_salle));
+		created_room[current_room_x,current_room_y] = true;
+		nb_obj ++;
+		//Ajout de 4 murs
+		ds_list_add(obj_list,instance_create_layer(x+3*8,y+11*8,"mur_exploses",obj_mur));
+		obj_list[| nb_obj].image_index = 1;
+		nb_obj ++;
+		ds_list_add(obj_list,instance_create_layer(x+29*8,y+11*8,"mur_exploses",obj_mur));
+		obj_list[| nb_obj].image_index = 3;
+		nb_obj ++;
+		ds_list_add(obj_list,instance_create_layer(x+16*8,y+3*8,"mur_exploses",obj_mur));
+		obj_list[| nb_obj].image_index = 0;
+		nb_obj ++;
+		ds_list_add(obj_list,instance_create_layer(x+16*8,y+19*8,"mur_exploses",obj_mur));
+		obj_list[| nb_obj].image_index = 2;
+		nb_obj ++;
+		ds_list_add(obj_list,instance_create_layer(x+8,y+8,"items",obj_fantome));
+		nb_obj ++;
 	}
 	
-*/
+
 
 #region
+/*
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
 	{
@@ -336,6 +353,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		}
 	}
 }
+*/
 #endregion
 
 if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
