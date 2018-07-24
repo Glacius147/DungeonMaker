@@ -55,7 +55,10 @@ switch objet_b
 		}
 	case spr_magnis :
 		{
-			with instance_position(x_t1,y_t1,obj_master) event_user(13);
+			with instance_create_layer(x_t1,y_t1,"mob",obj_affichage_item_use) 
+			{
+				sprite_index = spr_magnis;
+			}
 			magnis_actif = true;
 			break;
 		}
