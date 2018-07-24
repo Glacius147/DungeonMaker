@@ -6,20 +6,38 @@ nb_obj = ds_list_size(obj_list)
 
 var c_x = mouse_x
 var c_y = mouse_y
-var current_room_x = c_x div 256
-var current_room_y = c_y div 256
+
+//mise à jour de la salle courante
+if c_x<4096 or (c_y<1760)
+{
+current_room_x = c_x div 256
+current_room_y = c_y div 176
+}
+
 
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-
+/*
 	//clic minimap
-	if mouse_check_button_released(mb_left) && (c_x>4096 and c_x<4096+15 and c_y>1024){
-
-
-
+	//pour le +76, voir le rectangle bleu dans Draw
+	if mouse_check_button_released(mb_left) and (c_x>4096 and c_x<4096+76 and c_y>1760){
+			var d_y = mouse_y - camera_get_view_y(view_camera[1]) - 6
+			var d_x = mouse_x - camera_get_view_x(view_camera[1]) - 4
+			current_room_x = d_x div 4
+			current_room_y = d_y div 3
+			camera_set_view_pos(view_camera[0],current_room_x*256 ,xurrent_room_y*176);
 	}
 
-/*
+
+	//creation de salle
+	if mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y] and (c_x<4096)
+	{
+		
+	}
+	
+*/
+
+#region
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
 	{
@@ -318,7 +336,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		}
 	}
 }
-*/
+#endregion
 
 if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
 	//1er pression :

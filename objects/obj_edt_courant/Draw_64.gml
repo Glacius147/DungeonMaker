@@ -27,18 +27,13 @@ for (j = 0; j < 6; j += 1)
 			x1 = 3*4*16 + offset_x
 			y1 = 3*3*j + offset_y
 			draw_set_color(c_black);
-			draw_rectangle(x1, y1, x1+12, y1+9, false);
+			//draw_rectangle(x1, y1, x1+12, y1+9, false);
 		}
 			
 		//draw_set_color(c_black);
 		//draw_rectangle(x1, y1, x1+12, y1+9, true);
 	}
 	
-// room courante en rouge
-x1 = 3*4*current_room_x + offset_x
-y1 = 3*3*current_room_y + offset_y
-draw_set_color(c_red);
-draw_rectangle(x1, y1, x1+12, y1+9, false);
 
 } else if obj_menu.mode == MENU_MODE.PAUSE_EDT
 {

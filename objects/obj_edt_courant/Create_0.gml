@@ -8,6 +8,9 @@ enum EDITEUR_MODE{
 	ERASER_DEP
 };
 
+// la room de départ
+current_room_x = 8
+current_room_y = 15
 
 
 sprite_index = spr_joueur_down
