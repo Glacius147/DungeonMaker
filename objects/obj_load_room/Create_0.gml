@@ -85,6 +85,9 @@ for (i = 0; i < size; i++;)
 	new_item.item_version = item_version;
 	}
 	list_obj[i] = new_item
+	with new_item{
+		event_user(0)	
+	}
 }
 
 for (var i = 1; i < array_length_1d(origines); ++i) {

@@ -89,6 +89,10 @@ for (i = 0; i < size; i++;)
 	new_item.room_origine_x = item_px;
 	new_item.room_origine_y = item_py;
 	new_item.item_version = item_version;
+	with new_item{
+		event_user(7)	
+	}
+								
 	}
 	ds_list_add(obj_list,new_item)
 	if item_type == string(obj_joueur){	
