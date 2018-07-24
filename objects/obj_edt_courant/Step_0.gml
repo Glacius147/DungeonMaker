@@ -270,7 +270,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		if item != noone
 		{
 
-			item.item_version = (item.itemversion + 1) mod (item.item_nombre_version)
+			item.item_version = (item.item_version + 1) mod (item.item_nombre_version)
 			
 			nextroom = scr_is_room_adj(x,y)
 			has_nextroom = nextroom[0];
