@@ -13,13 +13,13 @@ if obj_menu.mode == MENU_MODE.SELECT_SAVE or  obj_menu.mode == MENU_MODE.SELECT_
 	if menu_control
 	{
 		//deplacement dans le menu
-		if k_down && !touche_enfoncee
+		if kp_down
 		{
 			menu_curseur = scr_wrap(menu_curseur + 1, 0 , menu_item - 1); 
 			touche_enfoncee = true;
 		}
 		
-		if k_up && !touche_enfoncee
+		if kp_up
 		{
 			menu_curseur = scr_wrap(menu_curseur - 1, 0 , menu_item - 1);
 			touche_enfoncee = true;
@@ -27,7 +27,7 @@ if obj_menu.mode == MENU_MODE.SELECT_SAVE or  obj_menu.mode == MENU_MODE.SELECT_
 		}
 		
 		//pour eviter un deplacement par frame quand on laisse appuyé sur haut/bas
-		if !k_down && !k_up 			touche_enfoncee = false;
+		if !kp_down && !kp_up 		
 		
 		if mouse_check_button_released(mb_left){
 			if mouse_x <350 and mouse_x > 176 and mouse_y>176-2-menu_itemheight*.75 and mouse_y<176+9.5*menu_itemheight
