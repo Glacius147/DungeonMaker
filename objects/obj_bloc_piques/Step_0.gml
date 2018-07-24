@@ -1,7 +1,8 @@
-/// @description ?
+/// @descr Gestion deplacement
+
 if instance_exists(obj_joueur) && obj_menu.mode = MENU_MODE.JEU
 {
-
+#region //Detection du joueur pour foncer dessus
 if mode = MODE_PIC.REPOS 
 {
 	if abs(obj_joueur.x-x) < 20
@@ -21,15 +22,17 @@ if mode = MODE_PIC.REPOS
 		vsp_base = vsp;
 	}
 }
+#endregion
 
+#region Mouvement de retour
 if mode = MODE_PIC.RETOUR
 {
 	//deplacement horizontal
-	while (place_meeting(x+hsp,y,obj_master) && hsp != 0)
+	while (place_meeting(x + hsp,y,obj_master) && hsp != 0)
 	{
-		if place_meeting(x+hsp,y,objp_objet_mobil)
+		if place_meeting(x + hsp,y,objp_objet_mobil)
 		{
-			collision = instance_place(x+hsp,y,objp_objet_mobil)
+			collision = instance_place(x + hsp,y,objp_objet_mobil)
 			event_user(1);
 		}
 		hsp = scr_approche(hsp,0,1);
@@ -53,8 +56,10 @@ if mode = MODE_PIC.RETOUR
 
 	if x = xstart && y = ystart mode = MODE_PIC.REPOS
 }
+#endregion
 
 
+#region Mouvement aller
 if mode = MODE_PIC.CHARGE
 {
 	//deplacement horizontal
@@ -88,7 +93,7 @@ if mode = MODE_PIC.CHARGE
 		hsp = - hsp_base/2;
 	}
 }
-
+#endregion
 
 }
 

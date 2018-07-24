@@ -173,22 +173,8 @@
             "rangeMax": 10,
             "rangeMin": 0,
             "resourceFilter": 1023,
-            "value": "2",
+            "value": "1.5",
             "varName": "vitesse_marche",
-            "varType": 0
-        },
-        {
-            "id": "f5f92bc3-66a0-4699-b6bd-4736a1f423ba",
-            "modelName": "GMObjectProperty",
-            "mvc": "1.0",
-            "listItems": null,
-            "multiselect": false,
-            "rangeEnabled": false,
-            "rangeMax": 10,
-            "rangeMin": 0,
-            "resourceFilter": 1023,
-            "value": "1",
-            "varName": "vitesse_retour",
             "varType": 0
         },
         {
