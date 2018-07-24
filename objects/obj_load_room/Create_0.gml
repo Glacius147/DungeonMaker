@@ -48,6 +48,7 @@ for (i = 0; i < size; i++;)
 	item_sprite = item[? "sprite"];
 	item_angle = item[? "angle"];
 	var item_version = item[? "item_version"];
+	if is_undefined(item_version) {item_version = 0;}
 	if item_type == string(obj_mur_salle){
 		var new_item = instance_create_layer(item_x,item_y,"salles",item_type)
 		salle_x = round(item_x/256)
@@ -76,7 +77,7 @@ for (i = 0; i < size; i++;)
 	{
 		new_item.destination = item[? "destination"];	
 	}
-	if new_item != noone
+	if new_item != noone // Utile ça ?
 	{
 	new_item.image_index = item_sprite;
 	new_item.image_angle = item_angle;

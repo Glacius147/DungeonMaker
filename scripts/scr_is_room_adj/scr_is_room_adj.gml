@@ -1,4 +1,5 @@
-/// @desc dit si la salle voisine est crée, et si 
+/// @desc dit si la salle voisine est crée, 
+//et si oui renvoie le obj_contour_salle qui matche la porte cliquée 
 /// @arg x
 /// @arg y
 

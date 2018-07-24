@@ -74,6 +74,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
 	{
+	#region
 	if mouse_check_button_released(mb_left)
 	{
 		c_x = mouse_x
@@ -282,7 +283,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 			}	
 		}
 	}
-
+	#endregion
 
 	if mouse_check_button_released(mb_right)
 	{

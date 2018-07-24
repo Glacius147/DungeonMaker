@@ -57,7 +57,8 @@ for (i = 0; i < size; i++;)
 	item_py = item[? "piece y"];
 	item_sprite = item[? "sprite"];
 	item_angle = item[? "angle"];
-	var item_version = item[? "item_version"];
+	item_version = item[? "item_version"];
+	if is_undefined(item_version) {item_version = 0;}
 	if item_type == string(obj_mur_salle){
 		var new_item = instance_create_layer(item_x,item_y,"salles",item_type)
 		salle_x = round(item_x/256);
@@ -82,6 +83,10 @@ for (i = 0; i < size; i++;)
 	if item_type == string(obj_escalier)
 	{
 		new_item.destination = item[? "destination"];	
+	}
+	
+	if item_type ==string(obj_porte){
+		new_item.mask_index = spr_bloc
 	}
 	if new_item != noone
 	{
