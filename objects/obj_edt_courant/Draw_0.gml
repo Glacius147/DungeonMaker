@@ -7,7 +7,7 @@ if view_current == 1
 {
 	// coordonnées de la camera 1
 	var y_hub = camera_get_view_y(view_camera[1])
-	show_debug_message(y_hub)
+	//show_debug_message(y_hub)
 	var x_hub = 4096
 	
 	//petite marge en noir
