@@ -20,6 +20,7 @@ current_room_y = 15
 
 sprite_index = spr_joueur_down
 current_type = obj_joueur
+item_version = 0
 image_speed = 0
 
 

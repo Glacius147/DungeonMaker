@@ -41,6 +41,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 
 
 	//creation de salle
+	#region
 	if (c_x<4096) and mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y]
 	{
 		x = current_room_x*256
@@ -65,11 +66,11 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 		ds_list_add(obj_list,instance_create_layer(x+8,y+8,"items",obj_fantome));
 		nb_obj ++;
 	}
-*/	
+	#endregion
 
+*/
 
 #region
-
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
 	{
@@ -106,6 +107,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 					sprite_index = item.sprite_index
 					image_index = item.image_index
 					current_type = item.object_index
+					item_version = item.item_version
 					if current_type == obj_escalier
 					{
 						dest = item.destination	
@@ -182,7 +184,11 @@ if mode_edition == EDITEUR_MODE.NORMAL
 						//obj_list[| nb_obj].sprite_index = spr_dragon_edt
 						obj_list[| nb_obj].room_origine_x = current_room_x
 						obj_list[| nb_obj].room_origine_x = current_room_x
+						new_item.item_version = item_version;
 						obj_list[| nb_obj].degats = 0
+						with new_item{
+							event_user(7)	
+						}
 						nb_obj ++;
 					}
 				} 
@@ -198,6 +204,11 @@ if mode_edition == EDITEUR_MODE.NORMAL
 							ds_list_replace(obj_list,old_position,new_item)
 							instance_destroy(current_player)
 							current_player = new_item
+							new_item.item_version = item_version;
+							with new_item{
+								event_user(7)	
+							}
+						
 						}
 					}
 					else if current_type == obj_escalier //cas de l'escalier ou il faut vérifier si deja créé
@@ -218,6 +229,11 @@ if mode_edition == EDITEUR_MODE.NORMAL
 								new_item = instance_create_layer(x,y,"Instances",current_type);
 								new_item.destination = dest
 								new_item.mask_index = spr_bloc;
+								new_item.item_version = item_version;
+								
+								with new_item{
+									event_user(7)	
+								}
 								ds_list_add(obj_list,new_item)
 								nb_obj++
 							} else //deja créé
@@ -246,13 +262,19 @@ if mode_edition == EDITEUR_MODE.NORMAL
 						if created_room[current_room_x,current_room_y]
 						{
 							nb_obj = ds_list_size(obj_list)
-							ds_list_add(obj_list,instance_create_layer(x,y,"Instances",current_type));
-							obj_list[| nb_obj].room_origine_x = current_room_x
-							obj_list[| nb_obj].room_origine_x = current_room_x
+							new_item = ds_list_add(obj_list,instance_create_layer(x,y,"Instances",current_type));
+							new_item.room_origine_x = current_room_x
+							new_item.room_origine_x = current_room_x
+							new_item.item_version = item_version
 							if current_type == obj_joueur//Cas du joueur non deja crée
 							{
 								current_player = obj_list[| nb_obj]
-							} 
+							}
+							
+							with new_item
+							{
+								event_user(7)	
+							}
 							nb_obj ++;
 						}
 					} 
@@ -271,6 +293,10 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		{
 
 			item.item_version = (item.item_version + 1) mod (item.item_nombre_version)
+			with item
+			{
+				event_user(7)	
+			}
 			
 			nextroom = scr_is_room_adj(x,y)
 			has_nextroom = nextroom[0];
