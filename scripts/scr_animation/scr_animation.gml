@@ -123,3 +123,5 @@ else
 		image_index = 1;
 	}
 }	
+
+if id = obj_joueur mask_index = spr_joueur_down;
