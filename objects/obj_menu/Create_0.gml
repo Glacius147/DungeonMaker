@@ -2,6 +2,8 @@
 
 randomize();
 
+
+
 gui_margin = 64;
 
 w = display_get_gui_width();

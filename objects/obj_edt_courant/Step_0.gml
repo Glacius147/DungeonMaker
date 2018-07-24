@@ -4,13 +4,22 @@
 
 nb_obj = ds_list_size(obj_list)
 
+var c_x = mouse_x
+var c_y = mouse_y
+var current_room_x = c_x div 256
+var current_room_y = c_y div 256
+
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-c_x = mouse_x
-c_y = mouse_y
-current_room_x = floor(c_x/256)
-current_room_y = floor(c_y/176)
 
+	//clic minimap
+	if mouse_check_button_released(mb_left) && (c_x>4096 and c_x<4096+15 and c_y>1024){
+
+
+
+	}
+
+/*
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
 	{
@@ -137,7 +146,6 @@ if mode_edition == EDITEUR_MODE.NORMAL
 							new_item = instance_create_layer(x,y,"Instances",current_type);
 							old_position = ds_list_find_index(obj_list,current_player)
 							ds_list_replace(obj_list,old_position,new_item)
-							//obj_list = scr_array_replace(obj_list,current_player,new_item)
 							instance_destroy(current_player)
 							current_player = new_item
 						}
@@ -310,7 +318,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 		}
 	}
 }
-
+*/
 
 if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
 	//1er pression :
@@ -369,8 +377,6 @@ if mode_edition = EDITEUR_MODE.DEPENDANCE_2{
 		if item != noone and item.activable and item.id != begin_arrow.id
 		{
 			new_item =  instance_create_layer(begin_arrow.x,begin_arrow.y,"Instances_dep",obj_dependance);
-			//new_item.origine = scr_get_index(obj_list,begin_arrow)
-			//new_item.destination = scr_get_index(obj_list,item)
 			new_item.origine_id = begin_arrow
 			new_item.destination_id = item
 			/*new_item.image_angle = point_direction(begin_arrow.x, begin_arrow.y, item.x, item.y);

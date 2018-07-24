@@ -11,35 +11,35 @@ var current_room_y = floor(c_y/176)
 
 
 //draw minimap
-var offset_x = 15*3-12
+var offset_x = 10*3-13
 var offset_y = 6*3
 var i;
 var j;
 
-draw_set_color(c_blue);
-draw_rectangle( 6*3, 6*3-12,75*3+12, 59*3,false);
-for (i = 0; i < 16; i += 1)
+
+	
+//Affichage des souterrains créés
+for (j = 0; j < 6; j += 1)
 	{
-		for (j = 0; j < 16; j += 1)
+		
+		if created_room[16,j] 
 		{
-			
-			x1 = 3*4*i + offset_x
+			x1 = 3*4*16 + offset_x
 			y1 = 3*3*j + offset_y
-			if current_room_x<16 and i == current_room_x and j == current_room_y
-			{
-				draw_set_color(c_red);
-				draw_rectangle(x1, y1, x1+12, y1+9, false);
-			}
-			else if created_room[i,j] 
-			{
-				draw_set_color(c_black);
-				draw_rectangle(x1, y1, x1+12, y1+9, false);
-			}
-			
-			//draw_set_color(c_black);
-			//draw_rectangle(x1, y1, x1+12, y1+9, true);
+			draw_set_color(c_black);
+			draw_rectangle(x1, y1, x1+12, y1+9, false);
 		}
+			
+		//draw_set_color(c_black);
+		//draw_rectangle(x1, y1, x1+12, y1+9, true);
 	}
+	
+// room courante en rouge
+x1 = 3*4*current_room_x + offset_x
+y1 = 3*3*current_room_y + offset_y
+draw_set_color(c_red);
+draw_rectangle(x1, y1, x1+12, y1+9, false);
+
 } else if obj_menu.mode == MENU_MODE.PAUSE_EDT
 {
 	x1 = floor(768/2*(1-percent_error)+50*percent_error)

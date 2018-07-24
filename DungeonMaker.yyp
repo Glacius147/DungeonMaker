@@ -594,7 +594,7 @@
             "Key": "59439763-a5ae-42bf-9b45-8aa6ca628b1c",
             "Value": {
                 "id": "d51cec98-d05d-49d7-9792-119c49a38822",
-                "resourcePath": "scripts\\scr_get_index\\scr_get_index.yy",
+                "resourcePath": "scripts\\free_scr\\free_scr.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1842,7 +1842,7 @@
             "Key": "f1bc672d-450c-4429-ac6b-99447088efba",
             "Value": {
                 "id": "5cf06517-7157-4e52-86ef-b8a5db536d8a",
-                "resourcePath": "scripts\\scr_array_replace\\scr_array_replace.yy",
+                "resourcePath": "scripts\\free_scr2\\free_scr2.yy",
                 "resourceType": "GMScript"
             }
         },

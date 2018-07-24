@@ -1,6 +1,51 @@
 /// @description affiche pinceau/erreurs
 // You can write your code in this editor
 
+//Affichage minimap
+#region
+if view_current == 1
+{
+	// coordonnées de la camera 1
+	var y_hub = camera_get_view_y(view_camera[1])
+	show_debug_message(y_hub)
+	var x_hub = 4096
+	
+	//petite marge en noir
+	var offset_x = x_hub+3
+	var offset_y = y_hub+2
+	
+	//Chaque salle est repr par un rectangle 3*2 avec 
+	//1 pixel entre chaque rectangle
+	// total en abscisse : 3+17*(3+1)+3 = 74
+	// (marge + 17 * (taille rect+marge) + marge
+	// total en ordonnée : 2+16*(2+1)+2 = 52
+	// (marge + 17 * (taille rect+marge) + marge
+	draw_set_color(c_blue);
+	draw_rectangle( offset_x, offset_y,offset_x + 74, offset_y+52,false);
+
+	//Affichage des salles créées
+	for (var i = 0; i < 16; i++)
+	{
+		for (var j = 0; j < 16; j++)
+		{
+			
+			if created_room[i,j] 
+			{
+				x1 = 3+4*i + offset_x
+				y1 = 2+3*j + offset_y
+				draw_set_color(c_black);
+				draw_rectangle(x1, y1, x1+2, y1+1, false);
+			}
+			
+			//draw_set_color(c_black);
+			//draw_rectangle(x1, y1, x1+12, y1+9, true);
+		}
+	}
+	
+}
+#endregion
+
+
 if view_current == 0 and obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
 	if mode_edition = EDITEUR_MODE.NORMAL{
