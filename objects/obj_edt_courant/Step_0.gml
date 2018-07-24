@@ -515,7 +515,7 @@ if  mode_edition = EDITEUR_MODE.ERASER
 } else if obj_menu.mode == MENU_MODE.PAUSE_EDT
 {
 	scr_input()
-	if k_start
+	if kp_start
 	{
 		obj_menu.mode = MENU_MODE.CONSTRUCTION
 	} else{

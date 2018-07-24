@@ -4,7 +4,7 @@ if obj_menu.mode = MENU_MODE.JEU && frames_immobile <= 0
 {
 	scr_input();
 	
-	if 	magnis_actif && !k_objet_d magnis_actif = false;
+	if 	magnis_actif && !k_objet magnis_actif = false;
 	
 	// On ne prend en compte que la direction la plus recente (l autre est dans dir_precedente)
 	switch dir_actuelle
@@ -101,7 +101,7 @@ if obj_menu.mode = MENU_MODE.JEU && frames_immobile <= 0
 	}
 
 	// on arrete le mouvement en cas d'attaque
-	if (k_attaque && !attaque) 
+	if (kp_attaque && !attaque) 
 	{
 		attaque = true;
 		alarm[0] = duree_sword;
@@ -121,7 +121,7 @@ if obj_menu.mode = MENU_MODE.JEU && frames_immobile <= 0
 		if k_down dir_attaque = DIR.DOWN;
 		if k_right dir_attaque = DIR.RIGHT;
 		if k_left dir_attaque = DIR.LEFT;
-		if k_objet scr_objet_use();
+		if kp_objet scr_objet_use();
 	}
 
 	//déplacement

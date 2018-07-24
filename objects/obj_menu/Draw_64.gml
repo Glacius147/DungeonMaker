@@ -1,13 +1,6 @@
 /// @description Tracer du texte du menu
 
-//draw_set_color(c_white)
-//draw_text(50,50,string(mode));
-//draw_text(200,50,string(percent2));
-
-
 //draw menu
-
-
 if mode = MENU_MODE.MENU
 {
 	

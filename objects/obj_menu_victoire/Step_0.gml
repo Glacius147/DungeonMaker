@@ -1,4 +1,4 @@
 /// @description ?
 scr_input();
 
-if k_start game_restart();
+if kp_start game_restart();

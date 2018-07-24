@@ -1,7 +1,9 @@
 /// @descr interface en jeu
 
+
 #region Hub du mode jeu
-if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode = MENU_MODE.PAUSE || mode = MENU_MODE.CHANGEMENT_SALLE
+
+if (mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode = MENU_MODE.PAUSE || mode = MENU_MODE.CHANGEMENT_SALLE) && view_current = 1
 {
 	//correction bug d'affichage
 	draw_set_color(c_black);
