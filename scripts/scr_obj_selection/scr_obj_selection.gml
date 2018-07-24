@@ -29,7 +29,7 @@ if objet_b_num != -1 scr_9box(spr_9box_red,x_b + 104 + 30*objet_b_num, y_b -146,
 
 
 #region //selection d'objet
-if mode != MENU_MODE.JEU
+if mode = MENU_MODE.PAUSE
 {
 	//création liste objet possedé
 	liste[0] = obj_joueur.cryo ;

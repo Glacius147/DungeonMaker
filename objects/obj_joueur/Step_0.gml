@@ -129,6 +129,7 @@ if obj_menu.mode = MENU_MODE.JEU && frames_immobile <= 0
 	
 	//animation
 	scr_animation();
+	mask_index = spr_joueur_down;
 	
 	// gestion dégats infligés
 	if attaque scr_attaque();

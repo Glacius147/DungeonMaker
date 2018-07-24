@@ -4,6 +4,8 @@ while (place_meeting(x + hsp + sign(hsp),y,objp_solide) && hsp != 0 && (!aquatiq
 {
 	with instance_place(x + hsp + sign(hsp),y,objp_solide)
 	{
+	
+	
 	collision = other.id;
 	temp_hsp = other.hsp;
 	temp_vsp = other.vsp;
@@ -14,7 +16,7 @@ while (place_meeting(x + hsp + sign(hsp),y,objp_solide) && hsp != 0 && (!aquatiq
 x = x + hsp;
 
 //deplacement vertical
-while (place_meeting(x,y + vsp + sign(vsp),objp_solide) && vsp != 0  && (!aquatique || place_meeting(x + vsp,y,objp_solide_sauf_eau)))
+while (place_meeting(x,y + vsp + sign(vsp),objp_solide) && vsp != 0  && (!aquatique || place_meeting(x ,y + vsp ,objp_solide_sauf_eau)))
 {
 	with instance_place(x,y + vsp + sign(vsp),objp_solide)
 	{

@@ -112,6 +112,8 @@ global.list_item[34] = string(obj_dragon);
 global.list_item[35] = string(obj_bottes_fer);
 global.list_item[36] = string(obj_bloc_inter);
 global.list_item[37] = string(obj_bloc_im);
+global.list_item[38] = string(obj_bordure);
+global.list_item[39] = string(obj_bordure_angle);
 #endregion
 
 
@@ -134,4 +136,12 @@ if !file_exists("svg_slot0.json")
 if !file_exists("svg_slot1.json")
 {
 	file_copy("svg_slot_1.json","svg_slot1.json")
+}
+if !file_exists("svg_slot2.json")
+{
+	file_copy("svg_slot_2.json","svg_slot2.json")
+}
+if !file_exists("svg_slot3.json")
+{
+	file_copy("svg_slot_3.json","svg_slot3.json")
 }

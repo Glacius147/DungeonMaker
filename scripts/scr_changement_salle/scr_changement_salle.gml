@@ -21,6 +21,17 @@ with obj_joueur
 		obj_menu.y_joueur_depart = obj_joueur.y;
 
 		obj_menu.mode = MENU_MODE.CHANGEMENT_SALLE;
+		
+		//reset de la salle d'arrivée
+		with obj_master
+		{
+			if room_origine_x = obj_joueur.room_current_x + x_to && room_origine_y = obj_joueur.room_current_y + y_to && id != obj_joueur.id
+			{
+				x = xstart;
+				y = ystart;
+				event_user(7);
+			}	
+		}
 
 	}
 }
