@@ -5,16 +5,6 @@
     "name": "obj_edt_camera",
     "eventList": [
         {
-            "id": "292eb7df-64cf-4d71-b685-70885fd3dc5a",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "7518873a-92e2-4c77-909a-28bfec2a199f"
-        },
-        {
             "id": "2a727941-6320-4863-8de5-4a8178165845",
             "modelName": "GMEvent",
             "mvc": "1.0",

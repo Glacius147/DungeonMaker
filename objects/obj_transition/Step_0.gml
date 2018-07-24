@@ -1,5 +1,6 @@
 /// @description Progression dans les transitions
 
+//gestion des bandes noir et timer lors des transitions.
 if mode != TRANS_MODE.OFF
 {
 	if mode = TRANS_MODE.INTRO

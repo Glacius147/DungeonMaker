@@ -197,6 +197,48 @@
             "value": "0",
             "varName": "torche_active",
             "varType": 3
+        },
+        {
+            "id": "c5420e53-015c-4787-8a1e-1c29e31a459e",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "item_version",
+            "varType": 0
+        },
+        {
+            "id": "61e32eba-3b33-46b2-9ace-d2e4864bed4b",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "item_nombre_version",
+            "varType": 0
+        },
+        {
+            "id": "00fe1891-de36-48a5-b519-f28ae9cbbffd",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "activant_on",
+            "varType": 3
         }
     ],
     "solid": false,
