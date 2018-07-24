@@ -67,7 +67,7 @@ for (i = 0; i < size; i++;)
 		created_room[salle_x,salle_y] = true
 	} else if object_is_ancestor(item_type, objp_contour_salle)
 	{
-		var new_item = instance_create_layer(item_x,item_y,"salles",item_type)
+		var new_item = instance_create_layer(item_x,item_y,"mur_exploses",item_type)
 	} else if item_type == string(obj_dependance)
 	{
 		origines[count] = item[? "origine"];
