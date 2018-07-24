@@ -1,6 +1,7 @@
 /// @description load lvl
 // You can write your code in this editor
 
+obj_menu.mode = MENU_MODE.CONSTRUCTION
 
 file = obj_select.file
 

@@ -86,7 +86,7 @@ for (i = 0; i < size; i++;)
 	}
 	list_obj[i] = new_item
 	with new_item{
-		event_user(0)	
+		event_user(7)	
 	}
 }
 
