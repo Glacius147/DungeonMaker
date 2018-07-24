@@ -2,7 +2,7 @@
 
 nb = 0;
 
-if obj_menu.mode = MENU_MODE.JEU && room_origine_x = obj_joueur.room_current_x && room_origine_y = obj_joueur.room_current_y && !cryo
+if obj_menu.mode = MENU_MODE.JEU && room_origine_x = obj_joueur.room_current_x && room_origine_y = obj_joueur.room_current_y
 {
 		
 
@@ -12,7 +12,10 @@ if obj_menu.mode = MENU_MODE.JEU && room_origine_x = obj_joueur.room_current_x &
 
 
 	//déplacement
+	mask_index = sprite_index;
 	scr_deplacement();
+	
+
 	
 	if hsp + vsp = 0 scr_random_direction();
 	
@@ -20,7 +23,6 @@ if obj_menu.mode = MENU_MODE.JEU && room_origine_x = obj_joueur.room_current_x &
 	
 	//animation
 	scr_animation();
-		
-	//attaque
-	scr_attaque_monstre();
+	
+	if item_version = 1 || item_version = 2 mask_index = spr_blop_mask;	
 }

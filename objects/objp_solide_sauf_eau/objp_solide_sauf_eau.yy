@@ -1,23 +1,14 @@
 {
-    "id": "e9e04ef9-c3b1-45c4-afd2-0061ab75380f",
+    "id": "ecc6472e-0ffe-4374-adcb-097042aed299",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "objp_solide",
+    "name": "objp_solide_sauf_eau",
     "eventList": [
-        {
-            "id": "82141dfa-5344-407f-b699-2347e1eb6f22",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 25,
-            "eventtype": 7,
-            "m_owner": "e9e04ef9-c3b1-45c4-afd2-0061ab75380f"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "192d6d30-f055-452b-961c-2dcdda5aec06",
+    "parentObjectId": "e9e04ef9-c3b1-45c4-afd2-0061ab75380f",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -33,7 +24,7 @@
     "physicsStartAwake": true,
     "properties": [
         {
-            "id": "74bb605c-624e-4192-8faa-46ac3938e1ee",
+            "id": "212ed4db-716e-4566-885b-d184800c763f",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,
@@ -47,7 +38,7 @@
             "varType": 0
         },
         {
-            "id": "cc62d610-6806-4dd4-acdf-02cc141dd14f",
+            "id": "bf2db87a-cdc0-46a4-abf0-a603e54a82e4",
             "modelName": "GMObjectProperty",
             "mvc": "1.0",
             "listItems": null,

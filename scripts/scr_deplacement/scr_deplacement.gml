@@ -1,6 +1,6 @@
 /// @description scr_deplacement()
 //deplacement horizontal
-while (place_meeting(x + hsp + sign(hsp),y,objp_solide) && hsp != 0)
+while (place_meeting(x + hsp + sign(hsp),y,objp_solide) && hsp != 0 && (!aquatique || place_meeting(x + hsp,y,objp_solide_sauf_eau)))
 {
 	with instance_place(x + hsp + sign(hsp),y,objp_solide)
 	{
@@ -14,7 +14,7 @@ while (place_meeting(x + hsp + sign(hsp),y,objp_solide) && hsp != 0)
 x = x + hsp;
 
 //deplacement vertical
-while (place_meeting(x,y + vsp + sign(vsp),objp_solide) && vsp != 0)
+while (place_meeting(x,y + vsp + sign(vsp),objp_solide) && vsp != 0  && (!aquatique || place_meeting(x + vsp,y,objp_solide_sauf_eau)))
 {
 	with instance_place(x,y + vsp + sign(vsp),objp_solide)
 	{

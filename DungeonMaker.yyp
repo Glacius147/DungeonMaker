@@ -1119,6 +1119,14 @@
             }
         },
         {
+            "Key": "8f50c6ba-88b1-4a62-83a3-f8e66de33005",
+            "Value": {
+                "id": "b30f99e2-40b5-4d6e-855f-19b57187d51a",
+                "resourcePath": "sprites\\spr_blop_mask\\spr_blop_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8f8b9744-05d4-41a6-a062-6f9f89bd020c",
             "Value": {
                 "id": "4e6629a4-127c-488f-9936-92afa0c54530",
@@ -1887,6 +1895,14 @@
             }
         },
         {
+            "Key": "e9e04ef9-c3b1-45c4-afd2-0061ab75380f",
+            "Value": {
+                "id": "f09745bf-abd8-4fbd-8b2f-aa899ad2f3d1",
+                "resourcePath": "objects\\objp_solide\\objp_solide.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ea0cd9dd-6c43-4278-b876-bcc8557e1f60",
             "Value": {
                 "id": "dac78072-c943-486d-9ef9-f3881dba2fdd",
@@ -1906,7 +1922,7 @@
             "Key": "ecc6472e-0ffe-4374-adcb-097042aed299",
             "Value": {
                 "id": "0e4f39ea-d812-49a8-b242-b274537d1127",
-                "resourcePath": "objects\\objp_solide\\objp_solide.yy",
+                "resourcePath": "objects\\objp_solide_sauf_eau\\objp_solide_sauf_eau.yy",
                 "resourceType": "GMObject"
             }
         },

@@ -29,5 +29,5 @@ if nb < 10
 	//déplacement
 	scr_deplacement();
 	
-	if hsp + vsp = 0 event_user(2);
+	if hsp + vsp = 0 scr_random_direction();
 }

@@ -385,6 +385,20 @@
             "value": "0",
             "varName": "blink",
             "varType": 0
+        },
+        {
+            "id": "957dcd10-5a4a-4b13-be06-e06916cf8b79",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "aquatique",
+            "varType": 3
         }
     ],
     "solid": false,

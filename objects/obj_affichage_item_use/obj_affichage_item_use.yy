@@ -85,6 +85,20 @@
             "value": "True",
             "varName": "first_hit",
             "varType": 3
+        },
+        {
+            "id": "a5ed00ba-4617-48d0-a70e-41a289aae3f5",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "0",
+            "varName": "son",
+            "varType": 3
         }
     ],
     "solid": false,
