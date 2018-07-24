@@ -2,6 +2,8 @@
 
 image_angle = 90*item_version;
 
+
+//gestion du masque de collision
 if obj_menu.mode = MENU_MODE.JEU
 {
 	mask_index = spr_back_victoire;

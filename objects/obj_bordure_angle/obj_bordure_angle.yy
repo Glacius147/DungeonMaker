@@ -5,16 +5,6 @@
     "name": "obj_bordure_angle",
     "eventList": [
         {
-            "id": "e1cbf9d4-f897-49f4-b81e-a773a1ab666f",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "bb24db07-8123-4c5e-9e2c-d078f153e744"
-        },
-        {
             "id": "b86583d5-2d2a-4749-9a6a-d52cb5a76199",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -22,6 +12,16 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 17,
             "eventtype": 7,
+            "m_owner": "bb24db07-8123-4c5e-9e2c-d078f153e744"
+        },
+        {
+            "id": "b139bd18-2659-4e50-8024-84b25577e728",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 1,
+            "eventtype": 3,
             "m_owner": "bb24db07-8123-4c5e-9e2c-d078f153e744"
         }
     ],
