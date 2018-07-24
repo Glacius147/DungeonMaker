@@ -81,24 +81,11 @@ if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode 
 
 
 
-//gestion caméras
-if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode = MENU_MODE.PAUSE
-{
-	if view_current == 0
-	{
-	camera_set_view_size(view_camera[0], zone_jeu_w,zone_jeu_h*(1-percent));
-	view_set_hport(view_current,3*zone_jeu_h*(1-percent));
-	}
-	else
-	{
-	camera_set_view_size(view_camera[1], zone_jeu_w, zone_jeu_h*(percent)+64);
-	camera_set_view_pos(view_camera[1],4097 ,2752 - zone_jeu_h * (percent));
-	}
-}
+
 
 
 //gestion selection objet
-if mode = MENU_MODE.PAUSE && instance_exists(obj_joueur) 
+if (mode = MENU_MODE.PAUSE ||mode = MENU_MODE.UP||mode = MENU_MODE.DOWN) && instance_exists(obj_joueur) 
 {
 	scr_obj_selection();
 	scr_map();

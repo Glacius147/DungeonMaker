@@ -64,12 +64,12 @@ if mode != MENU_MODE.JEU
 {
 	if mode = MENU_MODE.FADE || mode = MENU_MODE.DOWN
 	{
-		percent = max(0,percent - 0.01);		
+		percent = max(0,percent - 0.02);		
 	}
 	
 	if mode = MENU_MODE.INTRO || mode = MENU_MODE.UP
 	{
-		percent = min(1,percent + 0.01);		
+		percent = min(1,percent + 0.02);		
 	}
 	
 	if (percent = 0) or (percent = 1)
@@ -100,6 +100,45 @@ if mode != MENU_MODE.JEU
 			}
 		}
 	}
+}
+
+//gestion caméras
+if mode = MENU_MODE.JEU || mode = MENU_MODE.UP || mode = MENU_MODE.DOWN || mode = MENU_MODE.PAUSE
+{
+	
+	{
+	//La hauteur de la camera 0
+	var ch = floor(zone_jeu_h*(1-percent));
+	
+	//Changement des paramètres de la cam 0 et du viewport associé
+	camera_set_view_size(view_camera[0], zone_jeu_w,ch);
+	view_set_hport(0,3*ch);
+	view_set_yport(0,720-3*ch); // C'est ça qui manquait ! du coup il y avait overlap entre les viewport et WTF ensued
+	
+	
+	//Changement des paramètres de la cam 0 et du viewport associé
+	camera_set_view_size(view_camera[1], zone_jeu_w, 240-ch);
+	camera_set_view_pos(view_camera[1],4097 ,2816-(240-ch));
+	view_set_hport(1,720-3*ch);
+	}
+	
+	/*
+	if debug_mode and (mode = MENU_MODE.DOWN or mode = MENU_MODE.UP) and (floor(percent*100) mod 5)==0
+	{
+		var cy = camera_get_view_y(view_camera[0]);
+		var ch = camera_get_view_height(view_camera[0]);
+		var vh = view_get_hport(0);
+		var vy = view_get_yport(0);
+		show_debug_message("percent = "+string(percent))
+		show_debug_message("Caméra 0 : "+"Centre "+string(cy)+" hauteur "+string(ch)+" yv "+string(vy) +" hauteurv "+string(vh))
+		var cy = camera_get_view_y(view_camera[1]);
+		var ch = camera_get_view_height(view_camera[1]);
+		var vh = view_get_hport(1);
+		var vy = view_get_yport(1);
+		show_debug_message("Caméra 1 : "+"Centre "+string(cy)+" hauteur "+string(ch)+" yv "+string(vy) + " hauteurv "+string(vh))
+		var test =1
+	}
+	*/
 }
 
 if mode = MENU_MODE.CHANGEMENT_SALLE
