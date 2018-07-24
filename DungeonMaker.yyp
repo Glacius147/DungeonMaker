@@ -623,6 +623,14 @@
             }
         },
         {
+            "Key": "579db5ba-5e51-4018-88c7-ec6ec2dc5454",
+            "Value": {
+                "id": "8de8665e-2269-466a-89b7-fa003a6fa2aa",
+                "resourcePath": "datafiles_yy\\svg_slot_2.json.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "57d61530-7571-405a-bf42-d2305a81a2ba",
             "Value": {
                 "id": "26c27481-c3eb-4b93-9900-ce008a0c8b21",
@@ -828,14 +836,6 @@
                 "id": "aa5a501b-5b40-4f91-966c-36ae1116dcfb",
                 "resourcePath": "views\\7562ce5b-a91f-4d43-8e68-c73173ca323e.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "75b08472-5722-408b-87df-0c68d801b70d",
-            "Value": {
-                "id": "d3e44604-a7e0-4e75-b85a-d44a0cc9ab43",
-                "resourcePath": "datafiles_yy\\svg_slot_0.json.yy",
-                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -1279,6 +1279,14 @@
             }
         },
         {
+            "Key": "a371bebd-998c-4d4f-a74a-dcefe67e607f",
+            "Value": {
+                "id": "d4a9964a-44f2-4ca9-874c-45bd5a5ad70c",
+                "resourcePath": "objects\\obj_bordure\\obj_bordure.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a3e64c75-b1dd-452a-a8c0-9a3630f3eec1",
             "Value": {
                 "id": "8bf29596-dc89-44aa-b4a3-c3c2840c6854",
@@ -1332,6 +1340,14 @@
                 "id": "b5a7c25f-1627-485f-a228-d627c8211b79",
                 "resourcePath": "sounds\\son_pickup_vie\\son_pickup_vie.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "a70810a2-6992-4181-aaa6-12dcc943948b",
+            "Value": {
+                "id": "cbd79c8c-246b-4f40-a84f-b65d308375f1",
+                "resourcePath": "sprites\\spr_bordure1\\spr_bordure1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1455,11 +1471,11 @@
             }
         },
         {
-            "Key": "b504cba7-77d7-4bb5-a06f-a2dddf417852",
+            "Key": "b4b81e07-3164-4cfb-bba7-52c418273eb3",
             "Value": {
-                "id": "cd25ff73-091f-49d4-9a77-a02bbdc2fe0f",
-                "resourcePath": "datafiles_yy\\svg_slot_1.json.yy",
-                "resourceType": "GMIncludedFile"
+                "id": "68f5fd48-1da4-423e-8130-b1cbae0531c4",
+                "resourcePath": "sprites\\spr_bordure\\spr_bordure.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1484,6 +1500,22 @@
                 "id": "2bd1e6b9-4146-4f73-bec5-807d72815805",
                 "resourcePath": "sprites\\spr_moblin_right\\spr_moblin_right.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bb24db07-8123-4c5e-9e2c-d078f153e744",
+            "Value": {
+                "id": "59ee7920-f4aa-4088-84bd-5067bcc28ea4",
+                "resourcePath": "objects\\obj_bordure_angle\\obj_bordure_angle.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "bfae850f-a526-4596-8b29-6539b037a3fd",
+            "Value": {
+                "id": "d9616b86-45ac-42e5-98a2-7f8aa2949f33",
+                "resourcePath": "datafiles_yy\\svg_slot_1.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -1676,6 +1708,14 @@
                 "id": "c1face25-fb4b-4666-8cfa-fa1899a623d0",
                 "resourcePath": "sprites\\spr_joueur_down\\spr_joueur_down.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d5e97cd2-2879-48b5-a4b8-d1dad71ea92d",
+            "Value": {
+                "id": "fae03bed-ae1a-4556-b16d-93295e39590e",
+                "resourcePath": "datafiles_yy\\svg_slot_0.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {
@@ -1892,6 +1932,14 @@
                 "id": "3352e99f-dc5e-46da-9b11-58c1755c666f",
                 "resourcePath": "views\\e8ace4f5-03c0-4db8-9fe4-0538341c6dc5.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e8ec1fcd-d639-4bdd-8af2-b109ac06e473",
+            "Value": {
+                "id": "de938916-513f-4002-a49e-0b2c88a5d931",
+                "resourcePath": "datafiles_yy\\svg_slot_3.json.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {

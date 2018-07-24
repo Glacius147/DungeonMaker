@@ -39,5 +39,7 @@ switch item_version
 	}
 }
 
-if obj_menu.mode = MENU_MODE.CONSTRUCTION sprite_index = spr_down;
+visible = true;
+
+if obj_menu.mode != MENU_MODE.JEU sprite_index = spr_down;
 	
