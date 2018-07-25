@@ -15,6 +15,7 @@ var pos_mouse = scr_pos_edt(c_x,c_y)
 
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
+
 /*
 	//clic minimap : DONE
 	#region
@@ -44,11 +45,50 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	}
 	#endregion
 	
-	//TODO : selection d'un item dans le panel
+	//selection d'un item dans le panel : DONE
 	#region
 	if mouse_check_button_pressed(mb_left) and (pos_mouse = EDITEUR_POSITION.PALETTE)
 	{
-		
+		item = instance_position(c_x,c_y,obj_master)
+			if item != noone
+			{
+				//Changement du feeling : DONE
+				if item.object_index == obj_mur_salle
+				{
+					#region
+					obj_menu.t_deco = (obj_menu.t_deco+1) mod obj_menu.nb_deco
+					id_bg = layer_background_get_id("Backgrounds")
+					if obj_menu.t_deco = TYPE_DECO.BOTW
+					{
+						layer_background_change(id_bg,spr_sol)
+					} else if obj_menu.t_deco = TYPE_DECO.GLACE
+					{
+						
+						layer_background_change(id_bg,spr_sol_glace)
+					}else if obj_menu.t_deco = TYPE_DECO.DESERT
+					{
+						
+						layer_background_change(id_bg,spr_sol_desert)
+					}
+					#endregion
+				}
+				else
+				{
+					//Selection d'un objet : DONE
+					#region
+					sprite_index = item.sprite_index
+					image_index = item.image_index
+					current_type = item.object_index
+					item_version = item.item_version
+					//Cas de l'escalier, il faut copier la destination
+					// TODO : en faire un item_version ?
+					if current_type == obj_escalier
+					{
+						dest = item.destination	
+					}
+					#endregion
+				}
+			}
 	}
 	#endregion
 	
