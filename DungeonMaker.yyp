@@ -658,7 +658,7 @@
             "Key": "59439763-a5ae-42bf-9b45-8aa6ca628b1c",
             "Value": {
                 "id": "d51cec98-d05d-49d7-9792-119c49a38822",
-                "resourcePath": "scripts\\free_scr\\free_scr.yy",
+                "resourcePath": "scripts\\scr_pos_edt\\scr_pos_edt.yy",
                 "resourceType": "GMScript"
             }
         },

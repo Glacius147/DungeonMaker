@@ -3,8 +3,8 @@
 hsp = temp_hsp;
 vsp = temp_vsp;
 
-
-if collision == obj_joueur.id && actif && deplacement_effectue < sprite_height
+//OLD : collision = obj_joueur.id
+if collision.object_index == obj_joueur && actif && deplacement_effectue < sprite_height
 {
 	// On enregistre la direction du 1° deplacement
 	if hsp_ini == 0 and vsp_ini == 0 and !place_meeting(x+hsp,y+vsp,obj_master) 

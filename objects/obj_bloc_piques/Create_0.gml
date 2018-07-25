@@ -8,5 +8,5 @@ enum MODE_PIC
 	INACTIF
 }
 
-collision = obj_joueur.id
+collision = noone//obj_joueur.id
 

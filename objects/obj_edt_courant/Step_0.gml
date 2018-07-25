@@ -11,38 +11,55 @@ var c_y = mouse_y
 current_room_x = camera_get_view_x(view_camera[0]) div 256;
 current_room_y = camera_get_view_y(view_camera[0]) div 176;
 
+var pos_mouse = scr_pos_edt(c_x,c_y)
+
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-
-	//clic minimap
+/*
+	//clic minimap : DONE
 	#region
-	// 73 = 76 - 3
-	//pour le 76, voir le rectangle bleu dans Draw (74+2)
-	if mouse_check_button_released(mb_left) and (c_x>4096+6 and c_x<4096+73 and c_y>1760){
+	if mouse_check_button_released(mb_left) and pos_mouse == EDITEUR_POSITION.MINIMAP// (c_x>4096+6 and c_x<4096+73 and c_y>1760)
+	{
 			
-			var d_x = mouse_x - camera_get_view_x(view_camera[1]) - 4
-			var d_y = mouse_y - camera_get_view_y(view_camera[1]) - 6
+			var d_x = mouse_x - camera_get_view_x(view_camera[1]) - 6
+			var d_y = mouse_y - camera_get_view_y(view_camera[1]) - 4
 			
 			var current_room_x_t = d_x div 4
 			var current_room_y_t = d_y div 3
 			
-			//dans la dernière colonne, seules les salles sous sont accessibles
+			//TODO : deplacer dans scr_pos_edt pour une detection + fine de  EDITEUR_POSITION.MINIMAP
+			//dans la dernière colonne, seules les salles souteraines sont accessibles
 			if ((current_room_x_t == 16) and (current_room_y_t>5)) {current_room_x_t=-1}
 			
+			//Si on est trop loin
+			if (current_room_y_t>15) {current_room_x_t = -1;}
+			
 			//si le clic est légal, maj de la room courante
-			//if (current_room_x_t!=-1) {current_room_x = current_room_x_t; current_room_y= current_room_y_t;}
+			if (current_room_x_t!=-1) {current_room_x = current_room_x_t; current_room_y= current_room_y_t;}
 			
 			show_debug_message(current_room_x_t)
 			show_debug_message(current_room_y_t)
 			//deplacement de la caméra 0
-			//camera_set_view_pos(view_camera[0],current_room_x*256 ,current_room_y*176);
+			camera_set_view_pos(view_camera[0],current_room_x*256 ,current_room_y*176);
 	}
 	#endregion
-
-
-	//creation de salle
+	
+	//TODO : selection d'un item dans le panel
 	#region
-	if (c_x<4096) and mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y]
+	if mouse_check_button_pressed(mb_left) and (pos_mouse = EDITEUR_POSITION.PALETTE)
+	{
+		
+	}
+	#endregion
+	
+	//TODO : creation d'un item
+	#region
+	
+	#endregion
+
+	//creation de salle : DONE
+	#region
+	if (pos_mouse == EDITEUR_POSITION.SALLE) and mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y]
 	{
 		x = current_room_x*256
 		y = current_room_y*176
@@ -67,9 +84,9 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 		nb_obj ++;
 	}
 	#endregion
+*/
 
 
-/*
 #region
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
@@ -397,7 +414,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 }
 
 #endregion
-*/
+
 if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
 	//1er pression :
 

@@ -37,6 +37,42 @@ var list_obj;
 
 var size;
 size = ds_map_size(map);
+
+//Création du joueur en premier
+#region
+for (i = 0; i < size; i++;)
+{
+	item = map[? "item"+string(i)];
+	item_type = global.list_item[item[? "type"]];
+	if item_type == string(obj_joueur)
+	{
+		
+		item_x = item[? "x"];
+		item_y = item[? "y"];
+		item_px = item[? "piece x"];
+		item_py = item[? "piece y"];
+		item_sprite = item[? "sprite"];
+		item_angle = item[? "angle"];
+		var item_version = item[? "item_version"];
+		if is_undefined(item_version) {item_version = 0;}
+		var new_item = instance_create_layer(item_x,item_y,"mob",item_type)
+		{
+		new_item.image_index = item_sprite;
+		new_item.image_angle = item_angle;
+		new_item.room_origine_x = item_px;
+		new_item.room_origine_y = item_py;
+		new_item.item_version = item_version;
+		}
+		list_obj[i] = new_item
+		with new_item{
+			event_user(7)	
+		}
+
+	}
+}
+#endregion
+
+
 for (i = 0; i < size; i++;)
 	{
 	item = map[? "item"+string(i)];
@@ -59,7 +95,7 @@ for (i = 0; i < size; i++;)
 	{
 		var new_item = instance_create_layer(item_x,item_y,"mur_exploses",item_type)
 	}
-	else if object_is_ancestor(item_type, objp_objet_mobil)
+	else if object_is_ancestor(item_type, objp_objet_mobil) and item_type != string(obj_joueur)
 	{
 		var new_item = instance_create_layer(item_x,item_y,"mob",item_type)
 	} else if item_type == string(obj_dependance)
@@ -77,17 +113,17 @@ for (i = 0; i < size; i++;)
 	{
 		new_item.destination = item[? "destination"];	
 	}
-	if new_item != noone // Utile ça ?
+	if new_item != noone and item_type != string(obj_joueur) // Utile ça ?
 	{
 	new_item.image_index = item_sprite;
 	new_item.image_angle = item_angle;
 	new_item.room_origine_x = item_px;
 	new_item.room_origine_y = item_py;
 	new_item.item_version = item_version;
-	}
 	list_obj[i] = new_item
 	with new_item{
 		event_user(7)	
+	}
 	}
 }
 

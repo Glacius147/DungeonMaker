@@ -8,6 +8,13 @@ enum EDITEUR_MODE{
 	ERASER_DEP
 };
 
+enum EDITEUR_POSITION{
+	SALLE,
+	SOUTERRAIN,
+	MINIMAP,
+	PALETTE	
+};
+
 
 //Selection du mode principal
 obj_menu.mode = MENU_MODE.CONSTRUCTION
