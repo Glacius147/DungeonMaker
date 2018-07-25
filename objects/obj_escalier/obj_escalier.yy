@@ -54,6 +54,14 @@
             "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
             "propertyId": "0dec6461-7c55-4cc6-8a4f-dba7d8133036",
             "value": "True"
+        },
+        {
+            "id": "d204498d-8a38-4a96-a7d0-8b9c552e936c",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "value": "escalier"
         }
     ],
     "parentObjectId": "ecc6472e-0ffe-4374-adcb-097042aed299",

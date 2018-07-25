@@ -138,6 +138,14 @@
             "objectId": "7f964f8c-21aa-434f-8996-7abdcf0d615b",
             "propertyId": "0811741f-fcef-4ff4-b18b-4cf9f30f362d",
             "value": "1"
+        },
+        {
+            "id": "8c85eb7b-b72f-481d-8870-1aea771b3680",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "value": "joueur"
         }
     ],
     "parentObjectId": "7f964f8c-21aa-434f-8996-7abdcf0d615b",

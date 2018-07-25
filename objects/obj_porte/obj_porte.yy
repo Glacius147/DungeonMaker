@@ -26,7 +26,16 @@
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "overriddenProperties": null,
+    "overriddenProperties": [
+        {
+            "id": "40fd4b05-0e25-4c32-9929-bab73c4bbde5",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "value": "porte"
+        }
+    ],
     "parentObjectId": "ab3f4319-f61b-4bb5-a910-52a5a776aa44",
     "persistent": false,
     "physicsAngularDamping": 0.1,

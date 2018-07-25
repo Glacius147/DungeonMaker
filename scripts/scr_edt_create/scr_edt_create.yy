@@ -1,8 +1,8 @@
 {
-    "id": "f1bc672d-450c-4429-ac6b-99447088efba",
+    "id": "952dc752-f758-4355-9411-2bc4f6beea26",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "free_scr2",
+    "name": "scr_edt_create",
     "IsCompatibility": false,
     "IsDnD": false
 }

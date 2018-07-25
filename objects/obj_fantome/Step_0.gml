@@ -9,3 +9,5 @@ with objp_enemy
 		other.nb ++
 	}
 }
+
+//show_debug_message(nb)

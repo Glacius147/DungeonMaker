@@ -52,6 +52,14 @@
             "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
             "propertyId": "88f1a07a-3ee1-4364-96e1-a80c89b720a6",
             "value": "False"
+        },
+        {
+            "id": "03344799-fef3-4889-89a6-4ea482822ee3",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "value": "porte bloquée"
         }
     ],
     "parentObjectId": "ab3f4319-f61b-4bb5-a910-52a5a776aa44",

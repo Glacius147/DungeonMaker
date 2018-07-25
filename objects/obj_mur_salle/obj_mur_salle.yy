@@ -16,7 +16,16 @@
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "overriddenProperties": null,
+    "overriddenProperties": [
+        {
+            "id": "71c56f4e-8207-49c6-97e0-49ed1058f623",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "value": "mur salle"
+        }
+    ],
     "parentObjectId": "e8381c17-0d08-42e1-a287-13f6280a61f0",
     "persistent": false,
     "physicsAngularDamping": 0.1,

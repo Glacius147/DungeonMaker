@@ -1,6 +1,6 @@
 /// @desc Gestion des versions
 
-if item_version = 1 actif = true else actif = false;
+if (item_version = 1) {actif = true;} else {actif = false;}
 
 event_user(6);
 deplacement_effectue = 0;

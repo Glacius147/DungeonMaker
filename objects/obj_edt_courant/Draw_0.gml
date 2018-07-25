@@ -1,7 +1,9 @@
 /// @description affiche pinceau/erreurs
 // You can write your code in this editor
 
-//Affichage minimap
+
+
+//Affichage minimap : DONE
 #region
 if view_current == 1
 {
@@ -68,12 +70,21 @@ if view_current == 1
 }
 #endregion
 
-
-if view_current == 0 and obj_menu.mode == MENU_MODE.CONSTRUCTION
+// Affichage de l'item courant
+//La condition sur la position n'est pas vraiment nécessaire vu qu'il y a une condiction sur view_current
+#region
+if view_current == 0 and obj_menu.mode == MENU_MODE.CONSTRUCTION and (pos_mouse = EDITEUR_POSITION.SALLE or pos_mouse = EDITEUR_POSITION.SOUTERRAIN)
 {
-	if mode_edition = EDITEUR_MODE.NORMAL{
-	image_alpha = .5
-	//Détermination du type d'objet
+	if mode_edition = EDITEUR_MODE.NORMAL
+	{
+		image_alpha = .5
+		if (current_type != noone)
+		{
+			//show_debug_message(x)
+			draw_self()
+		}
+	//Détermination du type d'objet -> transféré step
+	/*
 	if current_type == obj_mur_salle.object_index
 		{
 			//Si c'est une salle, placement en haut à gauche
@@ -84,49 +95,32 @@ if view_current == 0 and obj_menu.mode == MENU_MODE.CONSTRUCTION
 			x = round((mouse_x-8) / 16)*16+8
 			y = round((mouse_y-8) / 16)*16+8
 		}
-
-
-
-	item = instance_position(x,y,obj_master);
-
-	if ((x<4096 or y<=1024) and current_type != noone)
-	{
-	draw_self()
-	}
-	else if item != noone and (item.object_index == obj_mur or item.object_index == obj_porte or item.object_index == obj_porte_bloquee or item.object_index == obj_porte_fermee)
-	{
+	*/
 	
-	}
+	
+
+	//item = instance_position(x,y,obj_master);
 
 	}
-	else if mode_edition = EDITEUR_MODE.DEPENDANCE_2
+	else if mode_edition = EDITEUR_MODE.DEPENDANCE_2 and pos_mouse = EDITEUR_POSITION.SALLE
 	{
+		//Affichage de la fleche non terminée
 		image_alpha = 1
-		x = begin_arrow.x
-		y = begin_arrow.y
-		if mouse_x<4096
-		{
-			draw_self()	
-			draw_sprite_ext(spr_fleche_pointe,0,mouse_x,mouse_y,1,1,image_angle,c_white,image_alpha)
-		}
+		//x = begin_arrow.x
+		//y = begin_arrow.y
+		
+		draw_self()	
+		draw_sprite_ext(spr_fleche_pointe,0,mouse_x,mouse_y,1,1,image_angle,c_white,image_alpha)
+		
 	}
 	else if mode_edition = EDITEUR_MODE.ERASER or mode_edition = EDITEUR_MODE.ERASER_DEP
 	{
+			//Affichage de la gomme
 			image_alpha = .9
-			x=mouse_x
-			y=mouse_y
 			draw_self()
 	}
 } 
+#endregion
 
 
 
-
-/*else
-{
-	
-x = round((mouse_x) / 16)*16
-y = round((mouse_y) / 16)*16
-	
-}
-*/

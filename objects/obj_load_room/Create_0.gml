@@ -113,7 +113,7 @@ for (i = 0; i < size; i++;)
 	{
 		new_item.destination = item[? "destination"];	
 	}
-	if new_item != noone and item_type != string(obj_joueur) // Utile ça ?
+	if new_item != noone and item_type != string(obj_joueur) // pour les dépendances et les joueur deja créé
 	{
 	new_item.image_index = item_sprite;
 	new_item.image_angle = item_angle;

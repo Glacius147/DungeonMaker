@@ -299,6 +299,20 @@
             "value": "0",
             "varName": "activant_on",
             "varType": 3
+        },
+        {
+            "id": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "",
+            "varName": "nom",
+            "varType": 2
         }
     ],
     "solid": false,

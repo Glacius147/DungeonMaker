@@ -26,7 +26,16 @@
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "overriddenProperties": null,
+    "overriddenProperties": [
+        {
+            "id": "dc352a28-f2e9-4712-85db-e9ffa718ebd2",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
+            "value": "mur explosable"
+        }
+    ],
     "parentObjectId": "e8381c17-0d08-42e1-a287-13f6280a61f0",
     "persistent": false,
     "physicsAngularDamping": 0.1,
