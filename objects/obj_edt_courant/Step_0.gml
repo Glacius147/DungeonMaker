@@ -13,7 +13,7 @@ current_room_y = camera_get_view_y(view_camera[0]) div 176;
 
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-/*
+
 	//clic minimap
 	#region
 	// 73 = 76 - 3
@@ -68,8 +68,8 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	}
 	#endregion
 
-*/
 
+/*
 #region
 //Mode d'édition normal
 if mode_edition == EDITEUR_MODE.NORMAL
@@ -397,7 +397,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 }
 
 #endregion
-
+*/
 if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
 	//1er pression :
 

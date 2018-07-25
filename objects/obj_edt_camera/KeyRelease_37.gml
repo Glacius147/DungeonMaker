@@ -1,6 +1,7 @@
 /// @description déplacement de la caméra dans la salle suivante
 // You can write your code in this editor
 
+if mode_old{
 //position actuelle
 var current_pos_x = camera_get_view_x(view_camera[0])
 var current_pos_y = camera_get_view_y(view_camera[0])
@@ -18,3 +19,5 @@ new_y = max(new_y,0)
 
 //Déplacement de la caméra
 camera_set_view_pos(view_camera[0],new_x ,new_y);
+
+}
