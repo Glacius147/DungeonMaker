@@ -215,6 +215,23 @@ for (i = 0; i<nb_item; i+=1)
 	ds_map_add(global.map_item_index,coress,i)
 }
 
+ini_open("data.ini")
+version = ini_read_real("version", "version", -1);
+
+if version < 2
+{
+	for (var i=0;i<6;i++)
+	{
+		if file_exists("svg_slot"+string(i)+".json")
+		{
+			file_delete("svg_slot"+string(i)+".json")
+		}
+	}
+	ini_write_real("version","version",2)
+}
+ini_close()
+
+
 
 //ajoute le nivo 0 si le slot est libre.
 if !file_exists("svg_slot0.json")

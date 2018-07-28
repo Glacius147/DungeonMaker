@@ -56,7 +56,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 			//si le clic est légal, maj de la room courante
 			if (current_room_x_t!=-1) {current_room_x = current_room_x_t; current_room_y= current_room_y_t;}
 			
-			debug("salle crée",current_room_x_t,current_room_y_t)
+			//debug("salle crée",current_room_x_t,current_room_y_t)
 			//deplacement de la caméra 0
 			camera_set_view_pos(view_camera[0],current_room_x*256 ,current_room_y*176);
 	}
@@ -97,6 +97,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 					scr_edt_mode(EDITEUR_MODE.NORMAL)
 					sprite_index = item.sprite_index
 					image_index = item.image_index
+					image_angle = item.image_angle
 					current_type = item.object_index
 					item_version = item.item_version
 					
@@ -193,7 +194,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	if mouse_check_button_released(mb_right) and mode_edition = EDITEUR_MODE.NORMAL and (pos_mouse == EDITEUR_POSITION.SALLE or pos_mouse == EDITEUR_POSITION.SOUTERRAIN)  
 	{
 		//On checke l'item cliqué
-		item = instance_position(x,y,obj_master);
+		item = instance_position(m_x,m_y,obj_master);
 		if item != noone // Il faut qu'il y ai quelque chose
 		{// placement des portes & changement d'item_version
 			#region
@@ -282,6 +283,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 				#region
 				sprite_index = item.sprite_index
 				image_index = item.image_index
+				image_angle = item.image_angle
 				current_type = item.object_index
 				item_version = item.item_version
 				#endregion
@@ -387,7 +389,7 @@ if  mode_edition = EDITEUR_MODE.ERASER
 			for(var i = 0; i < ds_list_size(obj_list); i++) 
 			{
 				var c_item = obj_list[| i];
-				if c_item != noone {debug(c_item.nom,c_item.room_origine_x,c_item.room_origine_y);}
+				//if c_item != noone {debug(c_item.nom,c_item.room_origine_x,c_item.room_origine_y);}
 				if c_item != noone and c_item.room_origine_x == current_room_x and c_item.room_origine_y == current_room_y and c_item.object_index != obj_mur_salle and c_item.object_index != obj_mur and c_item.object_index != obj_fantome
 				{
 					flag = false;

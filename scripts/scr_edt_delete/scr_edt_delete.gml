@@ -30,4 +30,4 @@ else
 obj_edt_courant.nb_obj--
 instance_destroy(id_);
 
-debug("nombre d'objets",obj_edt_courant.nb_obj)
+//debug("nombre d'objets",obj_edt_courant.nb_obj)

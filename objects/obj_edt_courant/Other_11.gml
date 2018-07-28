@@ -6,7 +6,8 @@ obj_menu.mode = MENU_MODE.CONSTRUCTION
 file = obj_select.file
 
 //Vidange de l'éditeur
-for (var i = 0; i < nb_obj; ++i) {
+//TODO : comprendre pourquoi nb_obj ne marche pas ici
+for (var i = 0; i < ds_list_size(obj_list); ++i) {
 	instance_destroy(obj_list[| i])
 }
 obj_list = ds_list_create();;
@@ -73,7 +74,6 @@ for (i = 0; i < size; i++;)
 		count++
 		begin_arrow = obj_list[| item_[? "origine"]];
 		item = obj_list[| item_[? "destination"]];
-		debug(item)
 		scr_edt_create(item_x,item_y,item_type)
 		begin_arrow = noone
 		item = noone
@@ -169,16 +169,10 @@ with obj_joueur
 {
 	event_user(1);
 }
-mode_edition = EDITEUR_MODE.NORMAL
-with obj_master
-{
-		image_alpha = 1	
-}
-with (obj_dependance)
-{
-	image_alpha = 0.2	
-}
-sprite_index = -1
-image_angle = 0
-image_xscale = 1
-current_type = noone
+sprite_index = spr_joueur_down
+current_type = obj_joueur
+item_version = 0
+former_sprite_index = spr_joueur_down
+former_current_type = obj_joueur
+
+scr_edt_mode(EDITEUR_MODE.NORMAL)

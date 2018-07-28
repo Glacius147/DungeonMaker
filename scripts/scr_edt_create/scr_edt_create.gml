@@ -16,7 +16,7 @@ if type_==obj_escalier
 	flag_dejacree = noone
 	with obj_escalier
 	{
-		debug(item_version,other.item_version)
+		//debug(item_version,other.item_version)
 		if x<4096 and item_version == other.item_version
 		{
 			other.flag_dejacree = id  	
@@ -72,7 +72,7 @@ if type_ == obj_dependance
 {
 	new_item.origine_id = begin_arrow
 	new_item.destination_id = item
-	debug(item)
+	//debug(item)
 }
 
 
@@ -91,4 +91,4 @@ if (type_ == obj_joueur)
 	ds_list_add(obj_list,new_item);
 	nb_obj ++;
 }
-debug(new_item.nom,nb_obj)
+//debug(new_item.nom,nb_obj)
