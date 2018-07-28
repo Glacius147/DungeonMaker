@@ -1,7 +1,7 @@
 /// @description SAVE
 // You can write your code in this editor
 
-if current_player != noone
+if obj_list[| 0] != noone
 {
 
 obj_menu.mode = MENU_MODE.SELECT_SAVE

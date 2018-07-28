@@ -1,27 +1,28 @@
 /// @desc dit si la salle voisine est crée, 
-//et si oui renvoie le obj_contour_salle qui matche la porte cliquée 
+//et si oui renvoie le obj_contour_salle qui matche la porte cliquée et sa corespondante
 /// @arg x
 /// @arg y
 
 var x_ = argument[0];
 var y_ = argument[1];
 
-var current_room_x = floor(x_/256)
-var current_room_y = floor(y_/176)
+//var current_room_x = floor(x_/256)
+//var current_room_y = floor(y_/176)
 var result
 result[0] = false
 result[1] = noone
+result[2] = noone
 
-if (x_-current_room_x*256 > 206){
+if (x_-r_x > 206){
 	var x_to = 1
 	var y_to = 0
-} else if (x_-current_room_x*256 < 50){
+} else if (x_-r_x < 50){
 	var x_to = -1
 	var y_to = 0
-} else if (y_-current_room_y*176 > 126){
+} else if (y_-r_y > 126){
 	var x_to = 0
 	var y_to = 1
-} else if (y_-current_room_y*176 < 50){
+} else if (y_-r_y*176 < 50){
 	var x_to = 0
 	var y_to = -1
 } else{
@@ -36,11 +37,10 @@ if current_room_x+x_to<0 or current_room_y+y_to<0{
 {
 	if created_room[current_room_x+x_to,current_room_y+y_to]{
 		result[0] = true
-		var item = instance_position(current_room_x*256+128 + x_to*(128+3*8),current_room_y*176+88+y_to*(88+3*8),obj_master);
-		if item.object_index = obj_dragon{
-			result[0] = false
-		}
-		result[1] = item
+		var item_to = instance_position(r_x+128 + x_to*(128+3*8),r_y+88+y_to*(88+3*8),objp_contour_salle);
+		var item_from = instance_position(r_x+128 + x_to*(128-3*8),r_y+88+y_to*(88-3*8),objp_contour_salle);
+		result[1] = item_to
+		result[2] = item_from
 		return result
 	} else
 	{

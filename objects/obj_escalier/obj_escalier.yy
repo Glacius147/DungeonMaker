@@ -43,6 +43,16 @@
             "enumb": 0,
             "eventtype": 0,
             "m_owner": "f3ca83fc-8228-4bd2-b4ae-fbd95709d634"
+        },
+        {
+            "id": "48131981-9537-4c8c-b5f9-50b00e598077",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 17,
+            "eventtype": 7,
+            "m_owner": "f3ca83fc-8228-4bd2-b4ae-fbd95709d634"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -62,6 +72,14 @@
             "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
             "propertyId": "eba53274-f131-4d1b-baae-7391a3ac4755",
             "value": "escalier"
+        },
+        {
+            "id": "1d37382b-e6c0-4bd2-90cc-d7fbdf29a068",
+            "modelName": "GMOverriddenProperty",
+            "mvc": "1.0",
+            "objectId": "d6c33cd1-23d3-4fc7-a8f7-b739c79c8dce",
+            "propertyId": "61e32eba-3b33-46b2-9ace-d2e4864bed4b",
+            "value": "9"
         }
     ],
     "parentObjectId": "ecc6472e-0ffe-4374-adcb-097042aed299",

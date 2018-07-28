@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-//TODO : Attention à l'usage de scr_input si on veux gérer l'editeru à la manette.
+//TODO : Attention à l'usage de scr_input si on veux gérer l'editeur à la manette.
 scr_input()
 
 var d_x = 0
@@ -12,7 +12,7 @@ if kp_up {d_y = -1;}
 if kp_right {d_x = 1;}
 if kp_left {d_x = -1;}
 
-//TODO : changer en current_room_x 
+//??? TODO : changer en current_room_x 
 var current_pos_x = camera_get_view_x(view_camera[0]) div 256
 var current_pos_y = camera_get_view_y(view_camera[0]) div 176
 

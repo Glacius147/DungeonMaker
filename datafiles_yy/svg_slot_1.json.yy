@@ -1,5 +1,5 @@
 {
-    "id": "bfae850f-a526-4596-8b29-6539b037a3fd",
+    "id": "57e865ae-d4b6-4f1b-8f58-2bcfabfd8083",
     "modelName": "GMIncludedFile",
     "mvc": "1.0",
     "name": "svg_slot_1.json",

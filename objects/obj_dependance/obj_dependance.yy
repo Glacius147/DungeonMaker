@@ -59,6 +59,20 @@
             "value": "1",
             "varName": "item_nombre_version",
             "varType": 0
+        },
+        {
+            "id": "94015509-920c-4fbd-817a-fae362fc6a1d",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "trigger",
+            "varName": "nom",
+            "varType": 2
         }
     ],
     "solid": false,

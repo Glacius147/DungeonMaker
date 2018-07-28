@@ -28,10 +28,21 @@ current_room_y = 15
 sprite_index = spr_joueur_down
 current_type = obj_joueur
 item_version = 0
+former_sprite_index = spr_joueur_down
+former_current_type = obj_joueur
+
+
 image_speed = 0
 
-
+//Deprecated
 current_player = noone
+
+obj_list = ds_list_create();;
+nb_obj = 0
+
+//pas encore de joueur créé
+ds_list_add(obj_list,noone)
+
 mode_edition = EDITEUR_MODE.NORMAL
 
 begin_arrow = noone
@@ -58,8 +69,6 @@ for (i = 0; i < 17; i += 1)
 	}
 }
 
-nb_obj = 0
-obj_list = ds_list_create();;
 
 //Message d'erreur à afficher & indicateur de progression de la fenetre
 error_message = ""

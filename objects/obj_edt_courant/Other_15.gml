@@ -65,7 +65,6 @@ switch (mode_edition) {
         break;
 	case EDITEUR_MODE.DEPENDANCE_2:
         mode_edition = EDITEUR_MODE.NORMAL
-		//todo : briser fleche ?
 		with (obj_master)
 		{
 			image_alpha = 1	

@@ -2,13 +2,13 @@
 // You can write your code in this editor
 
 //Ne devrait pas être nécessaire
-nb_obj = ds_list_size(obj_list)
+//nb_obj = ds_list_size(obj_list)
 
 var m_x = mouse_x
 var m_y = mouse_y
 
-var r_x = camera_get_view_x(view_camera[0])
-var r_y = camera_get_view_y(view_camera[0])
+r_x = camera_get_view_x(view_camera[0])
+r_y = camera_get_view_y(view_camera[0])
 
 current_room_x = r_x div 256;
 current_room_y = r_y div 176;
@@ -17,9 +17,9 @@ pos_mouse = scr_pos_edt(m_x,m_y)
 
 if obj_menu.mode == MENU_MODE.CONSTRUCTION
 {
-	//Curseur magnétique suivant le type d'objet. DONE
+	//Curseur magnétique suivant le type d'objet en mode normal.
 	#region
-	if pos_mouse == EDITEUR_POSITION.SALLE
+	if pos_mouse == EDITEUR_POSITION.SALLE and mode_edition = EDITEUR_MODE.NORMAL
 	{
 		//Cas du dragon
 		if (current_type == obj_dragon)
@@ -35,7 +35,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	} else	{x = m_x; y = m_y}// par defaut, match le curseur
 	#endregion
 
-	//clic minimap : DONE
+	//clic minimap : tous modes
 	#region
 	if mouse_check_button_released(mb_left) and pos_mouse == EDITEUR_POSITION.MINIMAP// (c_x>4096+6 and c_x<4096+73 and c_y>1760)
 	{
@@ -62,7 +62,7 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	}
 	#endregion
 	
-	//selection d'un item dans le panel : DONE
+	//selection d'un item dans le panel : peu importe le mode, provoque un retour au mode normal
 	#region
 	if mouse_check_button_pressed(mb_left) and (pos_mouse = EDITEUR_POSITION.PALETTE)
 	{
@@ -93,16 +93,13 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 				{
 					//Selection d'un objet : DONE
 					#region
+					//Changement de mode
+					scr_edt_mode(EDITEUR_MODE.NORMAL)
 					sprite_index = item.sprite_index
 					image_index = item.image_index
 					current_type = item.object_index
 					item_version = item.item_version
-					//Cas de l'escalier, il faut copier la destination
-					// TODO : en faire un item_version ?
-					if current_type == obj_escalier
-					{
-						dest = item.destination	
-					}
+					
 					#endregion
 				}
 			}
@@ -110,11 +107,11 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 	#endregion
 	
 	
-	//TODO : creation d'un item
+	//Clic dans une salle crée : DONE (dragon/teleport escalier/poser un item)
 	#region
-	if mouse_check_button_released(mb_left) and pos_mouse == EDITEUR_POSITION.SALLE// (c_x>4096+6 and c_x<4096+73 and c_y>1760)
+	if mouse_check_button_released(mb_left) and pos_mouse == EDITEUR_POSITION.SALLE and mode_edition == EDITEUR_MODE.NORMAL and created_room[current_room_x , current_room_y] // (c_x>4096+6 and c_x<4096+73 and c_y>1760)
 	{
-		//On regarde si il y a d'jà un objet (au centre de la case !)
+		//On regarde si il y a déjà un objet (au centre de la case !)
 		item = instance_position(x,y,obj_master);
 		if item != noone // Si il y a conflit d'objet, on pose pas sauf dragon sur mur
 		{
@@ -122,49 +119,324 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 			//Le check (item.image_index mod 4 ==0) est normalement superflu, comme le dragon est magnétisé
 			if item.object_index == obj_mur and (item.image_index mod 4 ==0) and current_type = obj_dragon
 			{
-				scr_edt_create(x,y,current_type,"mob")
+				scr_edt_create(x,y,current_type)
+			} 
+			else if item.object_index == obj_escalier // Teleport escalier
+			{
+				with obj_escalier_bis
+				{	//on cherche celui avec la meme destination & on change la camera
+					if destination == other.item.destination {camera_set_view_pos(view_camera[0],room_origine_x*256 ,176*room_origine_y);}
+				}
 			}
-	} 
+		} else
+		{
+		//Rien sur la case en question, on crée gaiement :
+			scr_edt_create(x,y,current_type)
+		}
 	}
 	#endregion
 	
-	//TODO : teleport escalier
+	//Clic dans un souterrain : DONE
 	#region
-	
+	if mouse_check_button_released(mb_left) and pos_mouse == EDITEUR_POSITION.SOUTERRAIN and created_room[current_room_x , current_room_y] // (c_x>4096+6 and c_x<4096+73 and c_y>1760)
+	{
+		//On regarde si il y a déjà un objet (au centre de la case !)
+		item = instance_position(x,y,obj_master);
+		if item != noone // Si il y a conflit d'objet, on pose pas.
+		{
+			if item.object_index == obj_escalier_bis // Teleport escalier
+			{
+				with obj_escalier
+				{
+					//on cherche celui avec le meme id dans une salle
+					if (x<4096 and destination == other.item.destination) {camera_set_view_pos(view_camera[0],room_origine_x*256 ,176*room_origine_y);}
+				}
+			}
+		} else
+		{
+			//Rien sur la case en question, on crée gaiement si c'est un item autorisé dans un souterrain :
+			if (object_is_ancestor(current_type.object_index,objp_item) or current_type.object_index = obj_bat)
+			{
+				scr_edt_create(x,y,current_type)
+			}
+		}
+	}
 	#endregion
 
-	//creation de salle : DONE
+	//creation de salle : tous modes provoque un retour au mode normal
 	#region
 	if (pos_mouse == EDITEUR_POSITION.SALLE) and mouse_check_button_released(mb_left) and !created_room[current_room_x,current_room_y]
 	{
-		nb_obj = ds_list_size(obj_list)
-		scr_edt_create(r_x,r_y,obj_mur_salle,"salles")
+		//Changement de MODE
+		scr_edt_mode(EDITEUR_MODE.NORMAL)
+		//nb_obj = ds_list_size(obj_list)
+		scr_edt_create(r_x,r_y,obj_mur_salle)
 		created_room[current_room_x,current_room_y] = true;
 		
 		//Ajout de 4 murs
 		
-		scr_edt_create(r_x+3*8,r_y+11*8,obj_mur,"mur_exploses");
-		obj_list[| nb_obj-1].image_index = 1;
-		scr_edt_create(r_x+29*8,r_y+11*8,obj_mur,"mur_exploses");
-		obj_list[| nb_obj-1].image_index = 3;
-		scr_edt_create(r_x+16*8,r_y+3*8,obj_mur,"mur_exploses");
-		obj_list[| nb_obj-1].image_index = 0;
-		scr_edt_create(r_x+16*8,r_y+19*8,obj_mur,"mur_exploses");
-		obj_list[| nb_obj-1].image_index = 2;
+		scr_edt_create(r_x+16*8,r_y+3*8,obj_mur);
+		scr_edt_create(r_x+3*8,r_y+11*8,obj_mur);
+		scr_edt_create(r_x+16*8,r_y+19*8,obj_mur)
+		scr_edt_create(r_x+29*8,r_y+11*8,obj_mur);
 		
-		scr_edt_create(r_x+8,r_y+8,obj_fantome,"items")
+		//Et un trigger pour les monstres morts
+		scr_edt_create(r_x+8,r_y+8,obj_fantome)
+		
+		//TODO : Ajout d'une lanterne ?
 		
 	}
 	#endregion
 	
-	//TODO : Gestion du clic droit dans une salle/un souterrain
+	//Gestion du clic droit dans une salle/un souterrain en mode normal : DONE
 	#region
-	if mouse_check_button_released(mb_right) and (pos_mouse == EDITEUR_POSITION.SALLE or pos_mouse == EDITEUR_POSITION.SOUTERRAIN)  
+	if mouse_check_button_released(mb_right) and mode_edition = EDITEUR_MODE.NORMAL and (pos_mouse == EDITEUR_POSITION.SALLE or pos_mouse == EDITEUR_POSITION.SOUTERRAIN)  
 	{
-		//TODO : Sur un mur
-		//TODO : sur un objet pour changement de version
+		//On checke l'item cliqué
+		item = instance_position(x,y,obj_master);
+		if item != noone // Il faut qu'il y ai quelque chose
+		{// placement des portes & changement d'item_version
+			#region
+			//DONE : Sur un mur dans une salle //TODO : vérifier qu'il n'y a pas un dragon de l'autre coté
+			if object_is_ancestor(item.object_index,objp_contour_salle) and pos_mouse == EDITEUR_POSITION.SALLE
+			{
+				nextroom = scr_is_room_adj(x,y)
+				has_nextroom = nextroom[0];
+				item = nextroom[2]
+				var flag_change_mirror = true
+				if has_nextroom 
+				{
+					if item.object_index == obj_mur {next_type = obj_porte;}
+					if item.object_index == obj_porte {next_type = obj_porte_bloquee;}
+					if item.object_index == obj_porte {flag_change_mirror = false;}
+					if item.object_index == obj_porte_bloquee {next_type = obj_porte_fermee;}
+					if item.object_index == obj_porte_fermee {next_type = obj_mur_explosable;}
+					if item.object_index == obj_mur_explosable {next_type = obj_mur;}
+					
+					
+					new_x = item.x
+					new_y = item.y
+					scr_edt_delete(item)
+					scr_edt_create(new_x,new_y,next_type)
+					if flag_change_mirror
+					{
+						item = nextroom[1]
+						new_x = item.x
+						new_y = item.y
+						scr_edt_delete(item)
+						scr_edt_create(new_x,new_y,next_type)
+					}
+				} 
+			} else if  item.object_index != obj_escalier//Sur un objet pour changement de version. Sauf escalier
+			{
+				item.item_version = (item.item_version + 1) mod (item.item_nombre_version)
+				with item
+				{
+					event_user(7)	
+				}	
+			}
+			#endregion
+		}
+		
 	}
 	#endregion
+	
+	//Gestion du clic droit dans la palette : peu importe le mode, remet en mode normal
+	#region
+	if mouse_check_button_released(mb_right) and pos_mouse == EDITEUR_POSITION.PALETTE  
+	{
+		//On checke l'item cliqué
+		item = instance_position(x,y,obj_master);
+		if item != noone // Il faut qu'il y ai quelque chose
+		{
+			//Changement de MODE
+			scr_edt_mode(EDITEUR_MODE.NORMAL)
+			//changement d'item_version
+			item.item_version = (item.item_version + 1) mod (item.item_nombre_version)
+			with item
+			{
+				event_user(7)	
+			}
+			if item.object_index == obj_mur_salle
+			{
+				#region
+				obj_menu.t_deco = (obj_menu.t_deco+1) mod obj_menu.nb_deco
+				id_bg = layer_background_get_id("Backgrounds")
+				if obj_menu.t_deco = TYPE_DECO.BOTW
+				{
+					layer_background_change(id_bg,spr_sol)
+				} else if obj_menu.t_deco = TYPE_DECO.GLACE
+				{
+						
+					layer_background_change(id_bg,spr_sol_glace)
+				}else if obj_menu.t_deco = TYPE_DECO.DESERT
+				{
+						
+					layer_background_change(id_bg,spr_sol_desert)
+				}
+				#endregion
+			}
+			else
+			{
+				//Selection d'un objet : DONE
+				#region
+				sprite_index = item.sprite_index
+				image_index = item.image_index
+				current_type = item.object_index
+				item_version = item.item_version
+				#endregion
+			}
+		}
+		
+	}
+	#endregion
+
+
+
+//Mode dépendance1
+#region
+if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
+	//1e pression :
+
+	if mouse_check_button_pressed(mb_left) and pos_mouse == EDITEUR_POSITION.SALLE
+	{
+		item = instance_position(m_x,m_y,obj_master);
+		//debug(item.nom)
+		//Permet de cliquer la salle pour trouver l'objet fantome
+		if item != noone and item.object_index = obj_mur_salle
+		{
+			item = instance_position(m_x,m_y,obj_fantome);
+		}
+	
+		//On vérifie qu'on a bien cliqué sur un activant
+		if item != noone and item.activant
+		{	//Changement de mode & d'opacité.
+			mode_edition = EDITEUR_MODE.DEPENDANCE_2
+			with obj_master
+			{
+				if activant{
+					image_alpha = 0.5
+				} else if activable
+				{
+					image_alpha = 1	
+				}
+			}
+		sprite_index = spr_fleche1
+		begin_arrow = item
+		}
+	}
+}
+#endregion
+
+
+//Mode dépendance2 (1er clic pour fleche réalisé)
+#region
+if mode_edition = EDITEUR_MODE.DEPENDANCE_2{
+	//Relachement sur l'item suivant
+	
+	x = begin_arrow.x
+	y = begin_arrow.y
+	image_angle =  point_direction(begin_arrow.x, begin_arrow.y, m_x, m_y);
+	image_xscale = point_distance(begin_arrow.x, begin_arrow.y, m_x, m_y)/16
+	if mouse_check_button_released(mb_left) and pos_mouse == EDITEUR_POSITION.SALLE
+	{
+		//Dans tous les cas on revient en mode 1
+		mode_edition = EDITEUR_MODE.DEPENDANCE_1
+		with obj_master
+			{
+				if !activant{
+					image_alpha = .5
+				} else
+				{
+					image_alpha = 1	
+				}
+			}
+		
+		image_angle =0
+		image_xscale = 1
+		item = instance_position(m_x,m_y,obj_master);
+		if item != noone and item.activable and item.id != begin_arrow.id
+		{
+			new_item =  scr_edt_create(begin_arrow.x,begin_arrow.y,obj_dependance);
+		}
+		
+	}
+	
+}
+#endregion
+
+//Mode effaceur
+#region
+if  mode_edition = EDITEUR_MODE.ERASER
+{
+	#region
+	if mouse_check_button_released(mb_left) and (pos_mouse == EDITEUR_POSITION.SALLE or pos_mouse == EDITEUR_POSITION.SOUTERRAIN)
+	{
+		item = instance_position(m_x,m_y,obj_master);
+		//On ne peut pas détruire certains trucs.
+		if item != noone and item.object_index != obj_fantome and  item.object_index != obj_escalier_bis and item.object_index !=obj_mur_sousterrains and item.object_index !=obj_mur_sousterrains2 and !object_is_ancestor(item.object_index,objp_contour_salle) and !object_is_ancestor(item.object_index,objp_echelles) 
+		{
+			scr_edt_delete(item)
+		} else if  item != noone and item.object_index == obj_mur_salle
+		{
+			//Destruction d'une salle
+			#region
+			var flag = true
+			//On checke que la salle est vide.
+			//nb_obj = ds_list_size(obj_list)
+			for(var i = 0; i < ds_list_size(obj_list); i++) 
+			{
+				var c_item = obj_list[| i];
+				if c_item != noone {debug(c_item.nom,c_item.room_origine_x,c_item.room_origine_y);}
+				if c_item != noone and c_item.room_origine_x == current_room_x and c_item.room_origine_y == current_room_y and c_item.object_index != obj_mur_salle and c_item.object_index != obj_mur and c_item.object_index != obj_fantome
+				{
+					flag = false;
+					break;
+				}
+			}
+
+			if flag // On détruit les trucs qui sont restés dans la salle et la salle elle-meme normalement
+			{
+				with (obj_master)
+				{
+					if room_origine_x == other.current_room_x and room_origine_y == other.current_room_y
+					{
+						scr_edt_delete(id)
+					}
+				}
+				//et finalement on détruit la salle
+				created_room[current_room_x,current_room_y] = false
+			}
+			#endregion
+		}
+	}
+	#endregion
+} else if mode_edition = EDITEUR_MODE.ERASER_DEP
+{
+	if mouse_check_button_released(mb_left)
+	{
+		item = instance_position(mouse_x,mouse_y,obj_dependance);
+		if item != noone 
+		{
+			scr_edt_delete(item)
+		}
+	}
+	
+}
+#endregion
+
+
+} else if obj_menu.mode == MENU_MODE.PAUSE_EDT
+{
+	scr_input()
+	if kp_start
+	{
+		obj_menu.mode = MENU_MODE.CONSTRUCTION
+	} else{
+		percent_error = min(percent_error+0.02,1)	
+	}
+	
+}
 
 //Trucs en cours de suppression
 #region
@@ -232,7 +504,7 @@ if mode_edition == EDITEUR_MODE.NORMAL
 			{
 				x = current_room_x*256
 				y = current_room_y*176
-				nb_obj = ds_list_size(obj_list)
+				//nb_obj = ds_list_size(obj_list)
 				ds_list_add(obj_list,instance_create_layer(x,y,"salles",obj_mur_salle));
 				created_room[current_room_x,current_room_y] = true;
 				nb_obj ++;
@@ -498,182 +770,3 @@ if mode_edition == EDITEUR_MODE.NORMAL
 #endregion
 */
 #endregion
-
-//Mode dépendance1
-#region
-if mode_edition = EDITEUR_MODE.DEPENDANCE_1{
-	//1e pression :
-
-	if mouse_check_button_pressed(mb_left)
-	{
-		//On vérifie qu'on a bien cliqué sur un activant
-		x = round((mouse_x-8) / 16)*16+8;
-		y = round((mouse_y-8) / 16)*16+8;
-		item = instance_position(mouse_x,mouse_y,obj_master);
-		if item != noone and item.object_index = obj_mur_salle
-		{
-			item = instance_position(mouse_x,mouse_y,obj_fantome);
-		}
-		if item != noone and item.activant
-		{	//Changement de mode & d'opacité.
-			mode_edition = EDITEUR_MODE.DEPENDANCE_2
-			with obj_master
-			{
-				if activant{
-					image_alpha = 0.5
-				} else if activable
-				{
-					image_alpha = 1	
-				}
-			}
-		sprite_index = spr_fleche1
-		begin_arrow = item
-		}
-	}
-}
-#endregion
-
-
-//Mode dépendance2 (1er clic pour fleche réalisé)
-#region
-if mode_edition = EDITEUR_MODE.DEPENDANCE_2{
-	//Relachement sur l'item suivant
-	image_angle =  point_direction(begin_arrow.x, begin_arrow.y, mouse_x, mouse_y);
-	image_xscale = point_distance(begin_arrow.x, begin_arrow.y, mouse_x, mouse_y)/16
-	if mouse_check_button_released(mb_left)
-	{
-		//Dans tous les cas on revient en mode 1
-		mode_edition = EDITEUR_MODE.DEPENDANCE_1
-		with obj_master
-			{
-				if !activant{
-					image_alpha = .5
-				} else
-				{
-					image_alpha = 1	
-				}
-			}
-		
-		x = round((mouse_x-8) / 16)*16+8;
-		y = round((mouse_y-8) / 16)*16+8;
-		image_angle =0
-		image_xscale = 1
-		item = instance_position(mouse_x,mouse_y,obj_master);
-		if item != noone and item.activable and item.id != begin_arrow.id
-		{
-			new_item =  instance_create_layer(begin_arrow.x,begin_arrow.y,"Instances_dep",obj_dependance);
-			new_item.origine_id = begin_arrow
-			new_item.destination_id = item
-			/*new_item.image_angle = point_direction(begin_arrow.x, begin_arrow.y, item.x, item.y);
-			image_xscale=point_distance(origine_id.x, origine_id.y, destination_id.x, destination_id.y)/16
-
-			draw_self()
-			draw_sprite(spr_fleche_pointe,0,destination_id.x,destination_id.y)
-			with begin_arrow
-			{
-				other.new_item.image_xscale = distance_to_point(other.item.x,other.item.y)/32
-			}*/
-			//image_xscale = distance_to_point(mouse_x,mouse_y)/32;
-			ds_list_add(obj_list,new_item)
-			nb_obj++
-		}
-		
-	}
-	
-}
-#endregion
-
-//Mode effaceur
-#region
-if  mode_edition = EDITEUR_MODE.ERASER
-{
-	if mouse_check_button_released(mb_left) and (mouse_x<4096 or mouse_y<1024)
-	{
-		item = instance_position(mouse_x,mouse_y,obj_master);
-		//On ne peut pas détruire certains trucs.
-		if item != noone and item.object_index != obj_fantome and  item.object_index != obj_escalier_bis and !object_is_ancestor(item.object_index,objp_contour_salle) 
-		{
-			pos = ds_list_find_index(obj_list,item)
-			ds_list_delete(obj_list,pos)
-			with (obj_dependance)
-			{
-				if origine_id == other.item or destination_id == other.item{
-					pos = ds_list_find_index(other.obj_list,id);
-					ds_list_delete(other.obj_list,pos);
-					other.nb_obj--
-					instance_destroy(id);
-				}
-			}
-			if item.object_index == obj_joueur
-			{
-				current_player = noone	
-			}
-			nb_obj--
-			instance_destroy(item)
-		} else if  item != noone and item.object_index == obj_mur_salle
-		{
-			var flag = true
-			//On checke que la salle est vide.
-			nb_obj = ds_list_size(obj_list)
-			for(var i = 0; i < nb_obj; i++) 
-			{
-				var c_item = obj_list[| i];
-				//show_debug_message(string(c_item.room_origine_x) + " " +string(c_item.room_origine_y))
-				//show_debug_message("id joueur" +string(obj_joueur.object_index))
-				//show_debug_message("id objet" +string(c_item.object_index))
-				if c_item.room_origine_x == current_room_x and c_item.room_origine_y == current_room_y and c_item.object_index != obj_mur_salle and c_item.object_index != obj_mur and c_item.object_index != obj_fantome
-				{
-					flag = false;
-					break;
-				}
-			}
-			if flag // On détruit les trucs qui sont restés dans la salle
-			{
-				pos = ds_list_find_index(obj_list,item)
-				ds_list_delete(obj_list,pos)
-				with (obj_master)
-				{
-					if room_origine_x == other.current_room_x and room_origine_y == other.current_room_y
-					{
-						pos = ds_list_find_index(other.obj_list,id);
-						ds_list_delete(other.obj_list,pos);
-						other.nb_obj--
-						instance_destroy(id);
-					}
-				}
-				//et finalement on détruit la salle
-				nb_obj--
-				created_room[current_room_x,current_room_y] = false
-				instance_destroy(item)
-			}	
-		}
-	}
-} else if mode_edition = EDITEUR_MODE.ERASER_DEP
-{
-	if mouse_check_button_released(mb_left)
-	{
-		item = instance_position(mouse_x,mouse_y,obj_dependance);
-		if item != noone 
-		{
-			pos = ds_list_find_index(obj_list,item)
-			ds_list_delete(obj_list,pos)
-			nb_obj--
-			instance_destroy(item)
-		}
-	}
-	
-}
-#endregion
-
-
-} else if obj_menu.mode == MENU_MODE.PAUSE_EDT
-{
-	scr_input()
-	if kp_start
-	{
-		obj_menu.mode = MENU_MODE.CONSTRUCTION
-	} else{
-		percent_error = min(percent_error+0.02,1)	
-	}
-	
-}

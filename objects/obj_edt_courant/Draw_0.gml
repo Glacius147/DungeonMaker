@@ -83,31 +83,13 @@ if view_current == 0 and obj_menu.mode == MENU_MODE.CONSTRUCTION and (pos_mouse 
 			//show_debug_message(x)
 			draw_self()
 		}
-	//Détermination du type d'objet -> transféré step
-	/*
-	if current_type == obj_mur_salle.object_index
-		{
-			//Si c'est une salle, placement en haut à gauche
-			x = floor((mouse_x) / 256)*256
-			y = floor((mouse_y) / 176)*176
-		} else // par défaut, arrondi au bloc près, centré.
-		{
-			x = round((mouse_x-8) / 16)*16+8
-			y = round((mouse_y-8) / 16)*16+8
-		}
-	*/
 	
 	
-
-	//item = instance_position(x,y,obj_master);
-
 	}
 	else if mode_edition = EDITEUR_MODE.DEPENDANCE_2 and pos_mouse = EDITEUR_POSITION.SALLE
 	{
 		//Affichage de la fleche non terminée
 		image_alpha = 1
-		//x = begin_arrow.x
-		//y = begin_arrow.y
 		
 		draw_self()	
 		draw_sprite_ext(spr_fleche_pointe,0,mouse_x,mouse_y,1,1,image_angle,c_white,image_alpha)

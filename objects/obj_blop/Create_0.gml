@@ -2,8 +2,8 @@
 
 nb = 0;
 
-if obj_menu.mode = MENU_MODE.JEU
-
+if obj_menu.mode != MENU_MODE.CONSTRUCTION
+{
 alarm[0] = 1 ;
-
+}
 //alarm[2] = 120;

@@ -1,7 +1,7 @@
 /// @description ?
 
 //A VERIFIER !
-if obj_menu.mode == MENU_MODE.JEU{ 
+if obj_menu.mode != MENU_MODE.CONSTRUCTION{ 
 alarm[0] = 180;
 }
 

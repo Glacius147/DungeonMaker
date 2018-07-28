@@ -9,8 +9,11 @@ file = obj_select.file
 for (var i = 0; i < nb_obj; ++i) {
 	instance_destroy(obj_list[| i])
 }
-nb_obj = 0;
-ds_list_clear(obj_list);
+obj_list = ds_list_create();;
+nb_obj = 0
+
+//pas encore de joueur créé
+ds_list_add(obj_list,noone)
 
 
 //Chargement
@@ -41,12 +44,49 @@ var destinations;
 
 origines[0]=noone;
 destinations[0] = noone;
-var count=1;
+var count=0;
 
 
 var size;
 size = ds_map_size(map);
 nb_obj = size
+
+for (i = 0; i < size; i++;)
+{
+	item_ = map[? "item"+string(i)];
+	item_type = real(global.list_item[item_[? "type"]]);
+	item_x = item_[? "x"];
+	item_y = item_[? "y"];
+	item_sprite = item_[? "sprite"];
+	item_version = item_[? "item_version"];
+	if item_type == (obj_mur_salle){
+		scr_edt_create(item_x,item_y,item_type)
+		salle_x = item_x div 256;
+		salle_y = item_y div 176;
+		obj_menu.t_deco = item_sprite;
+		created_room[salle_x,salle_y] = true
+	}
+	else if item_type == (obj_dependance)
+	{
+		origines[count] = item_[? "origine"];
+		destinations[count] = item_[? "destination"];
+		count++
+		begin_arrow = obj_list[| item_[? "origine"]];
+		item = obj_list[| item_[? "destination"]];
+		debug(item)
+		scr_edt_create(item_x,item_y,item_type)
+		begin_arrow = noone
+		item = noone
+	}
+	else
+	{
+			scr_edt_create(item_x,item_y,item_type)
+	}
+
+	
+}
+/*
+
 for (i = 0; i < size; i++;)
 {
 	item = map[? "item"+string(i)];
@@ -58,7 +98,7 @@ for (i = 0; i < size; i++;)
 	item_sprite = item[? "sprite"];
 	item_angle = item[? "angle"];
 	item_version = item[? "item_version"];
-	if is_undefined(item_version) {item_version = 0;}
+	//if is_undefined(item_version) {item_version = 0;}
 	if item_type == string(obj_mur_salle){
 		var new_item = instance_create_layer(item_x,item_y,"salles",item_type)
 		salle_x = round(item_x/256);
@@ -82,7 +122,10 @@ for (i = 0; i < size; i++;)
 	}
 	if item_type == string(obj_escalier)
 	{
-		new_item.destination = item[? "destination"];	
+		new_item.destination = item[? "destination"];
+		//Modifs temporaires pour backward compatibility
+		if new_item.destination <3 {new_item.item_version = new_item.destination;}
+		else {new_item.item_version = 3+round((new_item.destination-3)*2);}
 	}
 	
 	if item_type ==string(obj_porte){
@@ -106,6 +149,8 @@ for (i = 0; i < size; i++;)
 	}
 }
 
+*/
+
 id_bg = layer_background_get_id("Backgrounds")
 if obj_menu.t_deco = TYPE_DECO.BOTW
 {
@@ -124,7 +169,6 @@ with obj_joueur
 {
 	event_user(1);
 }
-
 mode_edition = EDITEUR_MODE.NORMAL
 with obj_master
 {
