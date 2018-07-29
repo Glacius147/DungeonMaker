@@ -4,6 +4,8 @@ scr_input();
 
 if mode = MENU_MODE.VICTOIRE scr_victoire()
 
+
+
 #region //menu
 if mode = MENU_MODE.MENU
 {

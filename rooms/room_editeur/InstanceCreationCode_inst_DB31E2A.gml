@@ -7,7 +7,10 @@ message_y = 360
 
 message = "Les objets ici sont simplement des monstres.\n\n"
 
-message += "Le dragon doit imperativement etre place \n sur le millieu d'un mur haut .\n\n"
+
+message = "Le blob possède plusieurs versions.\n A vous d'en decouvrir les interactions !\n\n"
+
+message += "Le dragon doit imperativement etre place \n sur le millieu d'un mur haut nu.\n\n"
 
 message += "                         RETOUR : ENTREE"
 

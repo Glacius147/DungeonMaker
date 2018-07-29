@@ -120,7 +120,20 @@ if obj_menu.mode == MENU_MODE.CONSTRUCTION
 			//Le check (item.image_index mod 4 ==0) est normalement superflu, comme le dragon est magnétisé
 			if item.object_index == obj_mur and (item.image_index mod 4 ==0) and current_type = obj_dragon
 			{
-				scr_edt_create(x,y,current_type)
+				flag_dejacree = false
+				with obj_dragon{
+					if other.current_room_x == room_origine_x and other.current_room_y == room_origine_y
+					{
+						other.flag_dejacree = true	
+					}
+				}
+				if !flag_dejacree
+				{
+					scr_edt_create(x,y,current_type)
+				} else
+				{
+					debug("deja un dragon ici")	
+				}
 			} 
 			else if item.object_index == obj_escalier // Teleport escalier
 			{

@@ -967,6 +967,14 @@
             }
         },
         {
+            "Key": "8175760a-b588-46d8-be8a-f4b58090cf88",
+            "Value": {
+                "id": "8d72c4df-27b1-4f59-999b-3c530ff68f40",
+                "resourcePath": "sprites\\spr_defeat\\spr_defeat.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "820c243e-0fd7-4bb4-b21e-7d6a31f2ccea",
             "Value": {
                 "id": "1b6dcf4a-cbba-470c-bc64-5f8cdd62dd69",
@@ -1508,6 +1516,14 @@
                 "id": "d7e2b58e-f8f4-41f0-b855-c2e1d564023c",
                 "resourcePath": "objects\\obj_load_room\\obj_load_room.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b9010034-98e7-42fc-93f4-d77b40514431",
+            "Value": {
+                "id": "0a625da2-4038-4d23-ba37-98c4ea7b6a39",
+                "resourcePath": "sprites\\spr_back_defeat\\spr_back_defeat.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
