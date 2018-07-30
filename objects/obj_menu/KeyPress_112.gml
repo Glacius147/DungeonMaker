@@ -1,3 +1,5 @@
 /// @descr Coupage du son
 
-audio_sound_gain(obj_musique.musique_playing,0,0) 
+global.m_volume = 0
+
+audio_master_gain(global.m_volume);

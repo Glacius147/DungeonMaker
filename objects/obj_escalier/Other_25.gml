@@ -1,7 +1,7 @@
 /// @desc souterain !
-if actif
+if actif and collision == obj_joueur.id
 {
-	with obj_escalier_bis if destination = other.destination other.copine = id
+	with obj_escalier_bis {if (destination = other.destination) {other.copine = id;}}
 
 	//sauvegarde de la position de depart
 	x_t = obj_joueur.x;
